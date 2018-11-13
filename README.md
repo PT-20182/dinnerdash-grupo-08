@@ -1,24 +1,39 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Primeiramente, neste **README**, falaremos sobre o que você precisa ter no seu PC pra rodar o projeto!:tada: :tada:
 
-Things you may want to cover:
+## Ambiente de desenvolvimento
 
-* Ruby version
+Se ainda não tiver realizado todos os passos do nosso guia, faça! Se faltar alguma coisa, coissas inseperadas podem ocorrer, e coisas inesperadas dão muito trabalho pra resolver!
+Só façam! :see_no_evil:
+https://medium.com/@contato_49287/ambiente-de-desenvolvimento-cjr-cdfbe51863af
 
-* System dependencies
+ ### :gem: Versão do Ruby
+Ruby na versão 2.5.1
+Tem no guia ensinando comofas!
 
-* Configuration
+### :elephant: Postgresql
 
-* Database creation
+Não esqueçam de instalar o Postgresql, senão nem roda mesmo kk
 
-* Database initialization
+### :interrobang: Dúvidas
 
-* How to run the test suite
+Chama no Slack, mas sério, chama mesmo!
 
-* Services (job queues, cache servers, search engines, etc.)
+### :+1: Links úteis
 
-* Deployment instructions
+Nosso coleguinha, JL Yamin, conseguiu uns links bem legais e **úteis**, então, vamos aproveitar!
 
-* ...
+- Caso esqueçam comandinhos do GitHub, aqui tem um [guia baita legal](http://rogerdudler.github.io/git-guide/index.pt_BR.html);
+- E se tiverem dúvidazinhas sobre Rails, é sempre legal ver a [documentação](https://guides.rubyonrails.org/);
+- Quando o assunto é flexbox, eu entendo melhor como fazer o que eu quero com esse simulador [aqui](https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos/);
+- E se quiserem saber como fazer READMEs legais como esse, o GitHub tem um [guiazinho](https://guides.github.com/features/mastering-markdown/) fofo;
+- Ah, e dá para fazer commit com emojis, sabia? Só escrever um desses códigos [aqui](https://gist.github.com/rxaviers/7360908);
+
+
+### :link: Referências
+- Yamin, JL. Recomendação de fazer um README e links!
+
+:clap: **Valeus!**
+
+:running: Icaro
