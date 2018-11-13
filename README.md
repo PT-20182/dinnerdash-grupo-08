@@ -4,9 +4,7 @@ Primeiramente, neste **README**, falaremos sobre o que você precisa ter no seu 
 
 ## Ambiente de desenvolvimento
 
-Se ainda não tiver realizado todos os passos do nosso guia, faça! Se faltar alguma coisa, coissas inseperadas podem ocorrer, e coisas inesperadas dão muito trabalho pra resolver!
-Só façam! :see_no_evil:
-https://medium.com/@contato_49287/ambiente-de-desenvolvimento-cjr-cdfbe51863af
+Se ainda não tiver realizado todos os passos do nosso guia, faça! Se faltar alguma coisa, coissas inseperadas podem ocorrer, e coisas inesperadas dão muito trabalho pra resolver! [:see_no_evil:](https://medium.com/@contato_49287/ambiente-de-desenvolvimento-cjr-cdfbe51863af)
 
  ### :gem: Versão do Ruby
 Ruby na versão 2.5.1
