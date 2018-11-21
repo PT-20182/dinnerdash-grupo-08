@@ -20,7 +20,7 @@ gem 'bootstrap'
 
 gem 'jquery-rails'
 
-# Use Devise for authentication purposes
+# Devise gem for authentications purposes
 gem 'devise'
 
 # Use CoffeeScript for .coffee assets and views
