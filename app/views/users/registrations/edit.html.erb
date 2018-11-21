@@ -50,6 +50,6 @@
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<p>Wannaquit? <%= button_to "Quit", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Leaving already? <%= button_to "Log out", destroy_user_session_path, data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
