@@ -28,6 +28,13 @@ class SituationsController < ApplicationController
     redirect_to situation_path(@situation)
   end
 
+  def destroy
+    @situation = Situation.find(params[:id])
+    @situation.destroy
+
+    redirect_to situations_path
+  end
+
   private
 
   def situation_params
