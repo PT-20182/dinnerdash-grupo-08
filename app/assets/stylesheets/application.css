@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ .bg-image {
+    position: fixed;
+    width: 75em;
+    height: 50em;
+    z-index: -1;
+ }
