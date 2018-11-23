@@ -1,5 +1,5 @@
 <table>
-    <%= @situations.each do |situation| %>
+    <% @situations.each do |situation| %>
     <tr>
         <td><%= link_to situation.description, situation_path(situation) %></td>
         <td><%= button_to 'Edit', edit_situation_path(situation), method: 'get'%></td>
