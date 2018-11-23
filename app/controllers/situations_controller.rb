@@ -18,6 +18,14 @@ class SituationsController < ApplicationController
   end
   
   def edit
+    @situation = Situation.find(params[:id])
+  end
+
+  def update
+    @situation = Situation.find(params[:id])
+    @situation.update(situation_params)
+
+    redirect_to situation_path(@situation)
   end
 
   private
