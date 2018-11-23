@@ -1,10 +1,11 @@
 class SituationsController < ApplicationController
+  before_action :current_status, only: [:show, :edit, :update, :destroy]
   def index
     @situations = Situation.all
   end
 
   def show
-    @situation = Situation.find(params[:id])
+   
   end
 
   def new
@@ -18,18 +19,16 @@ class SituationsController < ApplicationController
   end
   
   def edit
-    @situation = Situation.find(params[:id])
+    
   end
 
   def update
-    @situation = Situation.find(params[:id])
     @situation.update(situation_params)
 
     redirect_to situation_path(@situation)
   end
 
   def destroy
-    @situation = Situation.find(params[:id])
     @situation.destroy
 
     redirect_to situations_path
@@ -39,6 +38,10 @@ class SituationsController < ApplicationController
 
   def situation_params
     params.require(:situation).permit(:description)
+  end
+
+  def current_status
+     @situation = Situation.find(params[:id])
   end
 
 end
