@@ -13,9 +13,16 @@
  *= require_tree .
  *= require_self
  */
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+
  .bg-image {
     position: fixed;
     width: 75em;
     height: 50em;
     z-index: -1;
  }
+
+
+
