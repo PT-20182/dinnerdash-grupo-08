@@ -1,11 +1,7 @@
 class SituationsController < ApplicationController
-  before_action :current_status, only: [:show, :edit, :update, :destroy]
+  before_action :current_status, only: [:edit, :update, :destroy]
   def index
     @situations = Situation.all
-  end
-
-  def show
-   
   end
 
   def new
@@ -25,7 +21,7 @@ class SituationsController < ApplicationController
   def update
     @situation.update(situation_params)
 
-    redirect_to situation_path(@situation)
+    redirect_to situations_path
   end
 
   def destroy
