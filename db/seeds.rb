@@ -9,7 +9,7 @@
 Category.create(name: 'Saladas')
 Category.create(name: 'Massas')
 Category.create(name: 'Pratos Principais')
-Category.create(name: 'Guarnicoes')
+Category.create(name: 'Guarnições')
 Category.create(name: 'Bebidas')
 Situation.create(description: 'pendente')
 Situation.create(description: 'entregue')

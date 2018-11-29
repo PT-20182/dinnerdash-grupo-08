@@ -1,24 +1,53 @@
-<table class="table table-hover">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">Nome</th>
-      <th scope="col">Numero de Refeicoes</th>
-      <th scope="col">Cadastrada em</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @categories.each do |category| %>
-    <tr>
-      <td><%= category.name %></td>
-      <td>4</td>
-      <td><%=category.created_at.strftime("%Y/%m/%d")%></td>
-      <td><%= link_to 'editar', edit_category_path(category), method: 'get', class: "edit"%></td>
-      <td><%= link_to 'excluir', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "remove" %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
- <%= button_to "Nova categoria de refeicao", new_category_path, class: "button"%>
+<div class="background">
+    <div class="container1 " >
+        <div><a class="navbar-brand">dinnerdash</a> </div>
+        <div class="items">
+            <a class="nav-item nav-link">Backoffice</a>
+            <a class="nav-item nav-link">Perfil</a>
+            <a class="nav-item nav-link">|</a>
+            <a class="nav-item nav-link">Sair</a>
+        </div>
+    </div>
+    <div class="title">
+        <p class="title1">Backoffice</p>
+        <p class="title2">Gerencie pedidos, refeições e mais</p>
+    </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="menu"> 
+        <a class="nav-item nav-link">Pedidos</a>
+        <a class="nav-item nav-link">Usuários</a>
+        <a class="nav-item nav-link">Refeições</a>
+        <a class="nav-item nav-link">Categorias de Refeições</a>
+    </div>
+</nav>
+<div class="container box">
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Numero de Refeições</th>
+            <th scope="col">Cadastrada em</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @categories.each do |category| %>
+            <tr>
+            <td><%= category.name %></td>
+            <td>4</td>
+            <td><%=category.created_at.strftime("%Y/%m/%d")%></td>
+            <td><%= link_to 'editar', edit_category_path(category), method: 'get', class: "edit" %></td>
+            <td><%= link_to 'excluir', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "remove" %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<%= button_to "Nova categoria de refeicao", new_category_path, class: "button"%>
+<div>
+    <div class="card-footer container-footer">
+    <div class="footer">dinnerdash | todos os direitos reservados</div>
+    <div class="footer1">desenvolvido por Trainee da Silva</div>
+</div>
