@@ -16,6 +16,7 @@ class CategoriesController < ApplicationController
     
     def create
        category = Category.create(category_params)
+
        redirect_to categories_path
     end
 
@@ -26,7 +27,7 @@ class CategoriesController < ApplicationController
     def update
         @category.update(category_params)
     
-        redirect_to category_path(@category)
+        redirect_to categories_path
     end
 
     def destroy

@@ -1,6 +1,34 @@
-<h3>Create a Category</h3>
-<%= form_with model: @category do |form| %>
-  <%= form.text_field :name, placeholder: "name" %>
+<div class="background">
+    <div class="container1 " >
+        <div><a class="navbar-brand">dinnerdash</a> </div>
+        <div class="items">
+            <a class="nav-item nav-link">Backoffice</a>
+            <a class="nav-item nav-link">Perfil</a>
+            <a class="nav-item nav-link">|</a>
+            <a class="nav-item nav-link">Sair</a>
+        </div>
+    </div>
+    <div class="title">
+        <p class="title1">Backoffice</p>
+        <p class="title2">Gerencie pedidos, refeições e mais</p>
+    </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="menu"> 
+        <a class="nav-item nav-link">Pedidos</a>
+        <a class="nav-item nav-link">Usuários</a>
+        <a class="nav-item nav-link">Refeições</a>
+        <a class="nav-item nav-link">Categorias de Refeições</a>
+    </div>
+</nav>
+<div class="oi">
+  <div class="container box">
+      <%= form_with model: @category do |form| %>
+        <%= form.text_field :name, placeholder: "name" %>
 
-  <%= form.submit %>
-<% end %>
+        <%= form.submit "Criar categoria", class: "button" %>
+      <% end %>
+  </div>
+</div>
+
+<%= render 'layouts/footer'%>

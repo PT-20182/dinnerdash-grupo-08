@@ -21,6 +21,7 @@
         <a class="nav-item nav-link">Categorias de Refeições</a>
     </div>
 </nav>
+<div class="oi">
 <div class="container box">
     <table class="table table-hover">
         <thead class="thead-light">
@@ -45,9 +46,7 @@
         </tbody>
     </table>
 </div>
-<%= button_to "Nova categoria de refeicao", new_category_path, class: "button"%>
-<div>
-    <div class="card-footer container-footer">
-    <div class="footer">dinnerdash | todos os direitos reservados</div>
-    <div class="footer1">desenvolvido por Trainee da Silva</div>
 </div>
+<%= link_to "Nova categoria de refeicao", new_category_path, class: "button"%>
+
+<%= render 'layouts/footer'%>
