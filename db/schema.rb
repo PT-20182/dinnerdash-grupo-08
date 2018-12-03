@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 2018_11_22_231346) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "situations", force: :cascade do |t|
+    t.string "description"
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
