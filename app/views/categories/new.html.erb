@@ -1,34 +1,55 @@
 <div class="background">
-    <div class="container1 " >
+    <div class="container1" >
         <div><a class="navbar-brand">dinnerdash</a> </div>
         <div class="items">
-            <a class="nav-item nav-link">Backoffice</a>
-            <a class="nav-item nav-link">Perfil</a>
+            <a class="nav-item nav-link">
+                <%= link_to "Backoffice" %>
+            </a>
+            <a class="nav-item nav-link">
+                <%= link_to "Perfil" %>
+            </a>
             <a class="nav-item nav-link">|</a>
-            <a class="nav-item nav-link">Sair</a>
+            <a class="nav-item nav-link">
+                <%= link_to "Sair", new_user_session_path %>
+            </a>
         </div>
     </div>
     <div class="title">
         <p class="title1">Backoffice</p>
-        <p class="title2">Gerencie pedidos, refeições e mais</p>
+        <p class="title2">Gerencie pedidos, refeições e mais </p>
     </div>
 </div>
 <nav class="navbar navbar-dark bg-dark">
     <div class="menu"> 
-        <a class="nav-item nav-link">Pedidos</a>
-        <a class="nav-item nav-link">Usuários</a>
-        <a class="nav-item nav-link">Refeições</a>
-        <a class="nav-item nav-link">Categorias de Refeições</a>
+        <a class="nav-item nav-link">
+            <%= link_to "Pedidos" %>
+        </a>
+        <a class="nav-item nav-link">
+            <%= link_to "Usuários" %>
+        </a>
+        <a class="nav-item nav-link">
+            <%= link_to "Refeições" %>
+        </a>
+        <a class="nav-item nav-link"> 
+            <%= link_to "Categorias de Refeições", categories_path %>
+        </a>
     </div>
 </nav>
 <div class="oi">
-  <div class="container box">
-      <%= form_with model: @category do |form| %>
-        <%= form.text_field :name, placeholder: "name" %>
-
-        <%= form.submit "Criar categoria", class: "button" %>
-      <% end %>
-  </div>
+    <div class="container box">
+        <h3 class="mb-1" >Criar nova categoria</h3>
+        <hr class="mt-0">
+        <%= form_with model: @category do |form| %>
+        <div class="form-group">
+            <%= form.label :Nome %>
+            <%= form.text_field :name, class: "form-control" %>
+        </div>
+        <div class="row">
+            <%= form.submit "Criar categoria", class: "btn btn-success m-2"%>
+            <% end %>
+            <%= link_to 'voltar', categories_path, class: "btn btn-secondary m-2" %>
+        </div>
+    </div>
 </div>
 
 <%= render 'layouts/footer'%>
