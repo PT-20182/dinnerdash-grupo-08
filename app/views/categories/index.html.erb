@@ -1,41 +1,4 @@
-<div class="background">
-    <div class="container1" >
-        <div><a class="navbar-brand">dinnerdash</a> </div>
-        <div class="items">
-            <a class="nav-item nav-link">
-                <%= link_to "Backoffice" %>
-            </a>
-            <a class="nav-item nav-link">
-                <%= link_to "Perfil" %>
-            </a>
-            <a class="nav-item nav-link">|</a>
-            <a class="nav-item nav-link">
-                <%= link_to "Sair", new_user_session_path %>
-            </a>
-        </div>
-    </div>
-    <div class="title">
-        <p class="title1">Backoffice</p>
-        <p class="title2">Gerencie pedidos, refeições e mais</p>
-    </div>
-</div>
-
-<nav class="navbar navbar-dark bg-dark">
-    <div class="menu"> 
-        <a class="nav-item nav-link">
-            <%= link_to "Pedidos" %>
-        </a>
-        <a class="nav-item nav-link">
-            <%= link_to "Usuários" %>
-        </a>
-        <a class="nav-item nav-link">
-            <%= link_to "Refeições" %>
-        </a>
-        <a class="nav-item nav-link"> 
-            <%= link_to "Categorias de Refeições", categories_path %>
-        </a>
-    </div>
-</nav>
+<%= render "layouts/banner" %>
 
 <div class="oi">
     <div class="container box">
@@ -51,13 +14,13 @@
             </thead>
             <tbody>
                 <% @categories.each do |category| %>
-                <tr>
-                <td><%= category.name %></td>
-                <td>4</td>
-                <td><%=category.created_at.strftime("%Y/%m/%d")%></td>
-                <td><%= link_to 'editar', edit_category_path(category), method: 'get', class: "edit" %></td>
-                <td><%= link_to 'excluir', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "remove" %></td>
-                </tr>
+                    <tr>
+                        <td><%= category.name %></td>
+                        <td>4</td>
+                        <td><%=category.created_at.strftime("%Y/%m/%d")%></td>
+                        <td><%= link_to 'editar', edit_category_path(category), method: 'get', class: "edit" %></td>
+                        <td><%= link_to 'excluir', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "remove" %></td>
+                    </tr>
                 <% end %>
             </tbody>
         </table>
