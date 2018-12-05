@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
     
+    before_action :check_admin_status
+
     def index
         @users = User.all
     end
@@ -24,12 +26,6 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         if @user.destroy
             redirect_to users_path
-        end
-    end
-
-    def check_admin_status
-        unless user_signed_in? && current_user.admin? 
-            redirect_to root_path
         end
     end
 
