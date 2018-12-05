@@ -1,0 +1,13 @@
+<h3>Upadate Meals Details</h3>
+
+<%= form_with model: @meal do |form| %>
+    <%= form.text_field :name, placeholder: "name"%>
+    <%= form.text_field :description, placeholder: "description"%>
+    <%= form.text_field :price, placeholder: "price"%>
+    <%= form.text_field :available, placeholder:"available" %>
+    <div class="field">
+        <%= form.label :image %>
+        <%= form.file_field :image %>
+    </div>
+    <%= form.submit %>
+<% end%>
