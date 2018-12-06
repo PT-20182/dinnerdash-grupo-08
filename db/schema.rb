@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_12_01_185408) do
     t.string "name"
     t.text "description"
     t.float "price"
-    t.string "available"
+    t.boolean "available"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

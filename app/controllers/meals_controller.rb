@@ -13,7 +13,7 @@ class MealsController < ApplicationController
   def create
       meal = Meal.create(meal_params)
 
-      redirect_to meal_path(meal)
+      redirect_to meal_path(meal, @meal)
   end
 
   def new
@@ -44,6 +44,15 @@ class MealsController < ApplicationController
 
   def current_meal
       @meal = Meal.find(params[:id])
+  end
+
+  def is_admin
+     if current_user.admin == true
+         return true
+     else
+         return false
+     end
+
   end
 
 end

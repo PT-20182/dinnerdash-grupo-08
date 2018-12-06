@@ -4,7 +4,8 @@
     <%= form.text_field :name, placeholder: "Reifeição" %>
     <%= form.text_field :description, placeholder: "Descrição" %>
     <%= form.text_field :price, placeholder: "Preço"%>
-    <%= form.text_field :available, placeholder: "Disponibilidade" %>
+    <%= check_box_tag(:available) %>
+    <%= label_tag(:available, "Disponivel") %>
 
     <div class="field">
         <%= form.label :image %>
