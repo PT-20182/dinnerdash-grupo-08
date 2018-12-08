@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
     
     before_action :current_category, only: [:show, :edit, :update, :destroy]
-    
+    before_action :check_admin_status, only: [:show, :edit]
+
     def index
         @categories = Category.all
     end

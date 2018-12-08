@@ -15,8 +15,13 @@ Category.create(name: 'Bebidas')
 Situation.create(description: 'pendente')
 Situation.create(description: 'entregue')
 Situation.create(description: 'cancelado')
-User.create(email: "user@user.com", username: "user", 
-                full_name: "user da silva", password: "user123")
 
+
+User.create(email: "admin@user.com", username: "admin", 
+            full_name: "ademir", password: "admin123", role: :admin)
+User.create(email: "user@user.com", username: "user", 
+            full_name: "user da silva", password: "user123", role: :user)
+User.create(email: "tobedeleted@user.com", username: "tobedeleted", 
+            full_name: "tobedeleted dos santos", password: "tobedeleted123", role: :user)
    
 

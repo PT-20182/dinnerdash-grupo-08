@@ -131,10 +131,14 @@ div p {
 }
 
 .form-box {
-   align-content: space-around;
+   align-content: space-between;
    padding: 1em 1em;
-   height: 22em;
+   height: 23em;
    display: flex;
    flex-direction: column;
    flex-wrap: wrap;
+}
+.form-box div{
+   width: 50%;
+   margin: 0.5em;
 }
