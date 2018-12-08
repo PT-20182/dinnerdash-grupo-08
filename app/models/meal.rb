@@ -1,10 +1,11 @@
 class Meal < ApplicationRecord
+    # belongs_to :category
+
     has_one_attached :image
 
     validates :name, presence: true
     validates :description, presence: true
     validates :price, presence: true
-    validates :available, presence: true
 
     validate :correct_image_type
 

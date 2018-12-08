@@ -11,9 +11,16 @@ class MealsController < ApplicationController
   end
 
   def create
-      meal = Meal.create(meal_params)
+      @meal = Meal.new(meal_params)
+      if @meal.save!
+          redirect_to meal_path(@meal)
+      else
+          flash[:notice] = "Sua vida acabou..."
+          render :new
+      end
 
-      redirect_to meal_path(meal)
+
+
   end
 
   def new
@@ -44,6 +51,15 @@ class MealsController < ApplicationController
 
   def current_meal
       @meal = Meal.find(params[:id])
+  end
+
+  def is_admin
+     if current_user.admin == true
+         return true
+     else
+         return false
+     end
+
   end
 
 end
