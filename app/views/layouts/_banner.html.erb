@@ -1,0 +1,28 @@
+<div class="background">
+    <div class="layer">
+        <div class="container1" >
+            <div>
+                <%= link_to "dinnerdash", root_path, class: "navbar-brand nav-link", id: "dinnerdash" %>
+            </div>
+            <div class="items">
+                <%= link_to "Backoffice", root_path, class:"nav-item nav-link", id: "backoffice" %> 
+                <%= link_to "Perfil", root_path, class:"nav-item nav-link links" %>
+                <a class="nav-item nav-link">|</a>
+                <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "nav-item nav-link links" %>
+            </div>
+        </div>
+        <div class="title">
+            <p class="title1">Backoffice</p>
+            <p class="title2">Gerencie pedidos, refeições e mais</p>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="menu"> 
+        <%= link_to "Pedidos", root_path, class: "nav-item nav-link links" %>
+        <%= link_to "Usuários", root_path, class: "nav-item nav-link links" %>
+        <%= link_to "Refeições", root_path, class: "nav-item nav-link links" %>
+        <%= link_to "Categorias de Refeições", categories_path, class: "nav-item nav-link links" %>
+    </div>
+</nav>

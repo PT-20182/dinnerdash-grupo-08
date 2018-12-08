@@ -1,34 +1,21 @@
-<div class="background">
-    <div class="container1 " >
-        <div><a class="navbar-brand">dinnerdash</a> </div>
-        <div class="items">
-            <a class="nav-item nav-link">Backoffice</a>
-            <a class="nav-item nav-link">Perfil</a>
-            <a class="nav-item nav-link">|</a>
-            <a class="nav-item nav-link">Sair</a>
-        </div>
-    </div>
-    <div class="title">
-        <p class="title1">Backoffice</p>
-        <p class="title2">Gerencie pedidos, refeições e mais</p>
-    </div>
-</div>
-<nav class="navbar navbar-dark bg-dark">
-    <div class="menu"> 
-        <a class="nav-item nav-link">Pedidos</a>
-        <a class="nav-item nav-link">Usuários</a>
-        <a class="nav-item nav-link">Refeições</a>
-        <a class="nav-item nav-link">Categorias de Refeições</a>
-    </div>
-</nav>
+<%= render "layouts/banner" %>
+
 <div class="oi">
     <div class="container box">
+        <h3 class="mb-1" >Editar categoria</h3>
+        <hr class="mt-0">
         <%= form_with model: @category do |form| %>
-            <%= form.text_field :name, placeholder: "name" %>
-
-            <%= form.submit "Salvar alterações", class: "button" %>
-        <% end %>
+        <div class="form-group">
+            <%= form.label :Nome %>
+            <%= form.text_field :name, class: "form-control" %>
+        </div>
+        <div class="row">
+            <%= form.submit "Salvar alteracoes", class: "btn btn-success m-2"%>
+            <% end %>
+            <%= link_to 'voltar', categories_path, class: "btn btn-secondary m-2" %>
+        </div>
     </div>
 </div>
 
 <%= render 'layouts/footer'%>
+      
