@@ -1,5 +1,6 @@
 class SituationsController < ApplicationController
   before_action :current_status, only: [:edit, :update, :destroy]
+  before_action :check_admin_status
   def index
     @situations = Situation.all
   end
