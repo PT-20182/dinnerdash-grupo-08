@@ -1,0 +1,16 @@
+<h2>Create a Meal</h2>
+
+<%= form_with model: @meal do |form| %>
+    <%= form.text_field :name, placeholder: "Reifeição" %>
+    <%= form.text_field :description, placeholder: "Descrição" %>
+    <%= form.text_field :price, placeholder: "Preço"%>
+    <%= form.check_box :available %>
+    <%= form.label :available, "Disponivel" %>
+
+    <div class="field">
+        <%= form.label :image %>
+        <%= form.file_field :image %>
+    </div>
+
+    <%= form.submit %>
+<% end %>

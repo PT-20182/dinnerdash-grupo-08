@@ -1,0 +1,31 @@
+<div class="background">
+    <div class="container1 " >
+        <div><a class="navbar-brand">dinnerdash</a> </div>
+        <div class="items">
+            <a class="nav-item nav-link">Backoffice</a>
+            <a class="nav-item nav-link">Perfil</a>
+            <a class="nav-item nav-link">|</a>
+            <a class="nav-item nav-link">Sair</a>
+        </div>
+    </div>
+    <div class="title">
+        <% if user_signed_in? %>
+            <p class="title1">Monte seu prato</p>
+        <% else %>
+            <p class="title1">Bem vindo, <% current_user.username %>!</p>
+        <% end %>
+        <p class="title2">Gerencie pedidos, refeições e mais</p>
+    </div>
+</div>
+
+<table>
+    <% @meals.each do |meal| %>
+    <tr>
+        <td> <%= link_to meal.name,meal_path(meal) %> </td>
+        <td> <%= button_to "Update", edit_meal_path(meal), method: :get %> </td>
+        <td> <%= button_to 'Delete', meal_path(meal), method: :delete, data: {confirm:"Are you sure ?"} %> </td>
+    </tr>
+    <% end %>
+</table>
+
+<%= link_to 'Create a Meal', new_meal_path %>
