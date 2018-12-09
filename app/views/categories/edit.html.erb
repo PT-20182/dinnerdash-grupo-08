@@ -1,0 +1,21 @@
+<%= render "layouts/banner" %>
+
+<div class="oi">
+    <div class="container box">
+        <h3 class="mb-1" >Editar categoria</h3>
+        <hr class="mt-0">
+        <%= form_with model: @category do |form| %>
+        <div class="form-group">
+            <%= form.label :Nome %>
+            <%= form.text_field :name, class: "form-control" %>
+        </div>
+        <div class="row">
+            <%= form.submit "Salvar alteracoes", class: "btn btn-success m-2"%>
+            <% end %>
+            <%= link_to 'voltar', categories_path, class: "btn btn-secondary m-2" %>
+        </div>
+    </div>
+</div>
+
+<%= render 'layouts/footer'%>
+      

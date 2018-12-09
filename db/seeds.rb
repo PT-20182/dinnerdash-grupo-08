@@ -19,3 +19,18 @@ Meal1 = Meal.create(name: 'yakisoba',description: 'Feito com varios vegetais e a
     Meal.create(name: 'Super Banana',description: 'Banana dos país das Bananeiras', price: 2.5, available: true)
 
     Meal1.image.attach(io: File.open(Rails.root.join('app/assets/images/Make-meals-healthy-interesting.jpg')), filename: 'Make-meals-healthy.jpg', content_type: 'image/jpg')
+
+Category.create(name: 'Saladas')
+Category.create(name: 'Massas')
+Category.create(name: 'Pratos Principais')
+Category.create(name: 'Guarnições')
+Category.create(name: 'Bebidas')
+
+
+
+User.create(email: "admin@user.com", username: "admin", 
+            full_name: "ademir", password: "admin123", role: :admin)
+User.create(email: "user@user.com", username: "user", 
+            full_name: "user da silva", password: "user123", role: :user)
+User.create(email: "tobedeleted@user.com", username: "tobedeleted", 
+            full_name: "tobedeleted dos santos", password: "tobedeleted123", role: :user)

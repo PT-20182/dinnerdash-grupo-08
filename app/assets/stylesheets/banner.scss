@@ -1,0 +1,81 @@
+.background {
+    background-image: url(helloquence-61189_1.jpg);
+    opacity: 0.85;
+    width: 100%;
+    height: 26em;
+    background-repeat:no-repeat;
+    background-size:cover;
+    color: white;
+    position: relative;
+}
+
+.layer {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 26em;
+}
+
+.container1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 84%;
+	margin: 0% 8%;
+}
+
+#dinnerdash {
+    // font-family: "Circular Std Book", Helvetica, serif;
+    color: white;
+    font-size: 2.5vh;
+}
+
+#dinnerdash:hover {
+    color: white;
+    font-weight: bold;
+}
+
+.items {
+    display: flex;
+}
+
+#backoffice {
+    color: gold;
+}
+
+#backoffice:hover {
+    color: gold;
+    font-weight: bold;
+}
+
+.links {
+    color: white;
+}
+
+.links:hover {
+    color: white;
+    font-weight: bold;
+}
+
+.title {
+    margin: 145px;
+}
+
+.title1 {
+    color: white;
+	font-size: 8vh;
+	margin-bottom: 0;
+}
+
+.title2 {
+    color: white;
+	font-size: 4.5vh;
+}
+
+.menu {
+	display: flex;
+	color: white;
+	margin: 5px 0px 5px 115px;
+}
