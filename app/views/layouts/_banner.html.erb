@@ -5,24 +5,36 @@
                 <%= link_to "dinnerdash", root_path, class: "navbar-brand nav-link", id: "dinnerdash" %>
             </div>
             <div class="items">
-                <%= link_to "Backoffice", root_path, class:"nav-item nav-link", id: "backoffice" %> 
+                <% if user_signed_in? && current_user.admin? %>
+                    <%= link_to "Backoffice", root_path, class:"nav-item nav-link", id: "backoffice" %> 
+                <% end %>
                 <%= link_to "Perfil", root_path, class:"nav-item nav-link links" %>
                 <a class="nav-item nav-link">|</a>
                 <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "nav-item nav-link links" %>
             </div>
         </div>
         <div class="title">
-            <p class="title1">Backoffice</p>
-            <p class="title2">Gerencie pedidos, refeições e mais</p>
+            <% if user_signed_in? && current_user.admin? %>
+                <p class="title1">Backoffice</p>
+                <p class="title2">Gerencie pedidos, refeições e mais</p>
+            <% elsif user_signed_in? %>
+                <p class="title1">Bem vindo, <%= current_user.username %>!</p>
+                <p class="title2">Escolha sua salada, molho, prato principal, guarnição, bebida e mais</p>
+            <% else %>
+                <p class="title1">Monte o seu prato</p>
+                <p class="title2">Escolha sua salada, molho, prato principal, guarnição, bebida e mais</p>
+            <% end %>
         </div>
     </div>
 </div>
 
-<nav class="navbar navbar-dark bg-dark">
-    <div class="menu"> 
-        <%= link_to "Pedidos", root_path, class: "nav-item nav-link links" %>
-        <%= link_to "Usuários", root_path, class: "nav-item nav-link links" %>
-        <%= link_to "Refeições", root_path, class: "nav-item nav-link links" %>
-        <%= link_to "Categorias de Refeições", categories_path, class: "nav-item nav-link links" %>
-    </div>
-</nav>
+<% if user_signed_in? && current_user.admin? %>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="menu"> 
+            <%= link_to "Pedidos", root_path, class: "nav-item nav-link links" %>
+            <%= link_to "Usuários", root_path, class: "nav-item nav-link links" %>
+            <%= link_to "Refeições", root_path, class: "nav-item nav-link links" %>
+            <%= link_to "Categorias de Refeições", categories_path, class: "nav-item nav-link links" %>
+        </div>
+    </nav>
+<% end %>

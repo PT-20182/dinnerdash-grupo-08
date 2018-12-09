@@ -142,3 +142,26 @@ div p {
    width: 50%;
    margin: 0.5em;
 }
+
+
+.title-field {
+   padding: 1em;
+   height: 3em;
+}
+
+.badge {
+   margin-right: 0.25em;
+}
+
+.edit-box {
+   align-content: space-around;
+   padding: 1em 1em;
+   height: 20em;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+.edit-box div{
+   width: 50%;
+   margin: 0.5em;
+}

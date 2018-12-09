@@ -1,3 +1,5 @@
+<%= render "layouts/banner" %>
+
 <h2>Create a Meal</h2>
 
 <%= form_with model: @meal do |form| %>
@@ -14,3 +16,5 @@
 
     <%= form.submit %>
 <% end %>
+
+<%= render "layouts/footer" %>
