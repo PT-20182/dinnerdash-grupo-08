@@ -47,8 +47,10 @@ ActiveRecord::Schema.define(version: 2018_12_06_111416) do
     t.text "description"
     t.float "price"
     t.boolean "available"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_meals_on_category_id"
   end
 
   create_table "situations", force: :cascade do |t|
@@ -74,4 +76,5 @@ ActiveRecord::Schema.define(version: 2018_12_06_111416) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "meals", "categories"
 end
