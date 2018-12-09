@@ -8,7 +8,12 @@
                 <% if user_signed_in? && current_user.admin? %>
                     <%= link_to "Backoffice", root_path, class:"nav-item nav-link", id: "backoffice" %> 
                 <% end %>
-                <%= link_to "Perfil", root_path, class:"nav-item nav-link links" %>
+                <% if user_signed_in? %>
+                    <%= link_to "Perfil", edit_user_registration_path, class:"nav-item nav-link links" %>
+                <% else %>
+                    <%= link_to "Login", new_user_session_path, class:"nav-item nav-link links" %>
+                    <%= link_to "Criar conta", new_user_registration_path, class:"nav-item nav-link links" %>
+                <% end %>
                 <a class="nav-item nav-link">|</a>
                 <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "nav-item nav-link links" %>
             </div>
