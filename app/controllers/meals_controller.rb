@@ -1,5 +1,6 @@
 class MealsController < ApplicationController
     before_action :get_categories
+    before_action :check_admin_status, only: [:new, :edit]
     before_action :current_meal, only: [:show, :edit, :update, :destroy]
 
     def get_categories

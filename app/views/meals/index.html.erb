@@ -1,34 +1,4 @@
-<div class="background">
-    <div class="container1 " >
-        <div><a class="navbar-brand">dinnerdash</a> </div>
-        <div class="items">
-            <% if user_signed_in? && current_user.admin? %>
-                <a class="nav-item nav-link">Backoffice</a>
-            <% end %>
-            <a class="nav-item nav-link">Perfil</a>
-            <a class="nav-item nav-link">|</a>
-            <a class="nav-item nav-link">Sair</a>
-        </div>
-    </div>
-    <div class="title">
-        <% if user_signed_in? && current_user.admin? %>
-            <p class="title1">Backoffice</p>
-            <p class="title2">Gerencie pedidos, refeições e mais</p>
-            <div class="menu"> 
-                <a class="nav-item nav-link">Pedidos</a>
-                <a class="nav-item nav-link">Usuários</a>
-                <a class="nav-item nav-link">Refeições</a>
-                <a class="nav-item nav-link">Categorias de Refeições</a>
-            </div>
-        <% elsif user_signed_in? %>
-            <p class="title1">Bem vindo, <%= current_user.username %>!</p>
-            <p class="title2">Escolha sua salada, molho, prato principal, guarnição e bebida</p>
-        <% else %>
-            <p class="title1">Monte seu prato</p>
-            <p class="title2">Escolha sua salada, molho, prato principal, guarnição e bebida</p>
-        <% end %>
-    </div>
-</div>
+<%= render "layouts/banner" %>
 
 <table>
     <% @categories.each do |category| %>
@@ -71,3 +41,5 @@
 </table>
 
 <%= link_to 'Create a Meal', new_meal_path %>
+
+<%= render "layouts/footer" %>

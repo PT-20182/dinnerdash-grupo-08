@@ -1,16 +1,37 @@
-<h3>Upadate Meals Details</h3>
+<%= render "layouts/banner" %>
+
+<div class="title-field">
+    <h2>Editar refeição</h2>
+</div>
 
 <%= form_with model: @meal do |form| %>
-    <%= form.text_field :name, placeholder: "name"%>
-    <%= form.text_field :description, placeholder: "description"%>
-    <%= form.text_field :price, placeholder: "price"%>
-    <div class="form-group">
-        <label for="sel1">Disponibilidade</label>
-        <%= form.select(:available, [['Disponível', true],['Indisponível', false]], selected: @meal.available) %>
+    <div class="edit-box meal-edit-box">
+        <div class="field">
+            <%= form.label "Nome" %> <br />
+            <%= form.text_field :name, placeholder: "name"%>
+        </div>
+
+        <div class="field">
+            <%= form.label "Descrição" %> <br />
+            <%= form.text_area :description, rows: 5, placeholder: "description"%>
+        </div>
+        
+        <div class="field">
+            <%= form.label "Preço" %> <br />
+            <%= form.text_field :price, placeholder: "price"%>
+        </div>
+        
+        <div class="form-group">
+            <label for="sel1">Disponibilidade</label><br />
+            <%= form.select(:available, [['Disponível', true],['Indisponível', false]], selected: @meal.available) %>
+        </div>
+
+        <div class="field">
+            <%= form.label :image %>
+            <%= form.file_field :image %>
+        </div>
+        <%= form.submit class:"btn btn-success" %>
     </div>
-    <div class="field">
-        <%= form.label :image %>
-        <%= form.file_field :image %>
-    </div>
-    <%= form.submit %>
 <% end%>
+
+<%= render "layouts/footer" %>
