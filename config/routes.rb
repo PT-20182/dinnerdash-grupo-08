@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root to: 'categories#index'
 
+  resources :meals
   resources :situations
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
