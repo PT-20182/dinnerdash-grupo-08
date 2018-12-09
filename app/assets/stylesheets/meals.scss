@@ -74,7 +74,18 @@ h2 {
 .btn-warning {
     color: white !important;
 }
+.btn-success {
+    margin: 0.5em;
+}
 
 .meal-edit-box {
     height: 18em;
+}
+
+.meal-link {
+    color: white;
+}
+.meal-link:hover {
+    color: white;
+    text-decoration: none;
 }
