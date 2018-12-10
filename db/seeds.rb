@@ -6,9 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-    User.create! :username => 'MasterYoda', :full_name => 'TheMasterHasNoName', :email => 'AngryIamnot@starwars.com', :password => 'yoda123', :password_confirmation => 'yoda123', role: :admin
-    User.create! :username => 'DarthVader', :full_name => 'Anakin Skywalker', :email => 'Iamyourfather@starwars.com', :password => 'darkforce', :password_confirmation => 'darkforce', role: :user
-    User.create! :username => 'TheChosenOne', :full_name => 'Luke Skywalker' , :email => 'Ihatemyfather@starwars.com', :password => 'luke123', :password_confirmation => 'luke123', role: :admin
 
     Situation.create!(description: 'pendente')
     Situation.create!(description: 'entregue')

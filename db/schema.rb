@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_12_10_185309) do
     t.text "description"
     t.float "price"
     t.boolean "available"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 2018_12_10_185309) do
     t.datetime "updated_at", null: false
     t.index ["situation_id"], name: "index_orders_on_situation_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+    t.index ["category_id"], name: "index_meals_on_category_id"
   end
 
   create_table "situations", force: :cascade do |t|
@@ -101,4 +103,5 @@ ActiveRecord::Schema.define(version: 2018_12_10_185309) do
   add_foreign_key "order_meals", "orders"
   add_foreign_key "orders", "situations"
   add_foreign_key "orders", "users"
+
 end

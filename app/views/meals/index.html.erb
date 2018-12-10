@@ -1,11 +1,47 @@
-<table>
-    <% @meals.each do |meal| %>
-    <tr>
-        <td> <%= link_to meal.name,meal_path(meal) %> </td>
-        <td> <%= button_to "Update", edit_meal_path(meal), method: :get %> </td>
-        <td> <%= button_to 'Delete', meal_path(meal), method: :delete, data: {confirm:"Are you sure ?"} %> </td>
-    </tr>
-    <% end %>
-</table>
+<%= render "layouts/banner" %>
 
-<%= link_to 'Create a Meal', new_meal_path %>
+<% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Adicionar nova refeição', new_meal_path, class:"btn btn-success" %>
+<% end %>
+<div class="box">
+    <table>
+        <% @categories.each do |category| %>
+            <% unless @meals.where(category_id: category.id).empty? %>
+                <h2><%= category.name %></h2>
+                <div class="category-container">
+                    <% @meals.where(category_id: category.id).each do |meal| %>
+                        <div class="meal-container">
+                            <% if meal.available %>
+                                <div class="meal-bg" style="background-image: url(<%= rails_blob_url(meal.image) %>)">
+                                    <div class="meal-name">
+                                        <%= link_to meal.name, meal_path(meal), class:"meal-link" %>
+                                    </div>
+                                </div>
+                            <% else %>
+                                <div class="meal-bg" style="background-image: url(<%= rails_blob_url(meal.image) %>)">
+                                    <div class="meal-bg-not-available">refeição indisponível</div>
+                                    <div class="meal-name">
+                                        <%= link_to meal.name, meal_path(meal), class:"meal-link" %>
+                                    </div>
+                                </div>
+                            <% end %>
+                            <div class="meal-display">
+                                <p><%= meal.description %></p>
+                                <h5><%= number_to_currency(meal.price, unit: "R$", separator: ",") %> por porção</h5>
+                                <% if user_signed_in? && current_user.admin? %>
+                                    <div class="meal-buttons">
+                                        <%= button_to "Editar", edit_meal_path(meal), method: :get, class: "btn btn-warning" %>
+                                        <%= button_to 'Excluir', meal_path(meal), method: :delete, data: {confirm:"Are you sure ?"}, class: "btn btn-danger" %>
+                                    </div>
+                                <% else %>
+                                    
+                                <% end %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        <% end %>
+    </table>
+</div>
+<%= render "layouts/footer" %>
