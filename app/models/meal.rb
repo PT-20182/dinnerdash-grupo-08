@@ -7,7 +7,6 @@ class Meal < ApplicationRecord
     validates :description, presence: true
     validates :price, presence: true, numericality: { greater_than: 0 }
     validates :category_id, presence: true
-
     validate :correct_image_type
 
     private
