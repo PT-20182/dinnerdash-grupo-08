@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   resources :categories
 
-  root to: 'meals#index'
-
-  put '/add_item', to: 'cart#add_item', as: 'add_item'
+  root to: 'categories#index'
 
   resources :meals
   resources :situations
@@ -11,5 +9,5 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :users
- 
+
 end
