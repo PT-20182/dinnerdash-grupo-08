@@ -1,9 +1,18 @@
-<h1><%= @meal.name %></h1>
-<h3> <%= @meal.description %></h3>
-<h4><%= @meal.price %></h4>
-<h5><%= @meal.available %></h5>
+<%= render "layouts/banner" %>
 
-<%= image_tag(@meal.image) %>
+<h3>Nome: <%= @meal.name %>.</h3>
+<div class="meal-container">
+    <div class="meal-bg" style="background-image: url(<%= rails_blob_url(@meal.image) %>)">
+    </div>
+</div>
+<h3>Descrição: <%= @meal.description %></h3>
+<h3>Preço: <%= number_to_currency(@meal.price, unit: "R$", separator: ",") %> por porção.</h5>
 
-<%= link_to 'Back', meals_path %>
-<%= link_to 'Delete', @meal, method: :delete, data: {confirm:"Are you sure ?"} %>
+
+<%= link_to 'Voltar', meals_path, class:"btn btn-secondary" %>
+
+<% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Excluir', @meal, method: :delete, data: {confirm:"Are you sure ?"}, class:"btn btn-danger" %>
+<% end %>
+
+<%= render "layouts/footer" %>

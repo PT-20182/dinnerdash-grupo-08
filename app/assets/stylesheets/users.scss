@@ -2,24 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.title-field {
-    padding: 1em;
-    height: 3em;
+.btn-secondary{
+    margin-left: 0.5em;
 }
-
-.badge {
-    margin-right: 0.25em;
-}
-
-.edit-box {
-    align-content: space-around;
-    padding: 1em 1em;
-    height: 20em;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
- }
- .edit-box div{
-    width: 50%;
-    margin: 0.5em;
- }

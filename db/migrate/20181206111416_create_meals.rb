@@ -5,7 +5,7 @@ class CreateMeals < ActiveRecord::Migration[5.2]
       t.text :description
       t.float :price
       t.boolean :available
-      # t.references :category, foreign_key: true
+      t.references :category, foreign_key: true
 
       t.timestamps
     end
