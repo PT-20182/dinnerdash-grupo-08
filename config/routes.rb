@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :order_meals   
+  resources :orders
   resources :categories
 
   root to: 'meals#index'
