@@ -25,7 +25,7 @@
                         <td><%= user.email %></td>
                         <td><%= user.created_at.strftime("%Y/%m/%d") %></td>
                         <td><%= link_to 'Editar', edit_user_path(user) %></td>
-                        <td><%= link_to 'Excluir', @user, method: :delete%></td>
+                        <td><%= link_to 'Excluir', user, method: :delete%></td>
                     </tr>
                 <% end %>
             <% end %>

@@ -1,4 +1,16 @@
-<div class="background">
+<% if current_page?(root_path) %>
+    <% if user_signed_in? && current_user.admin? %>
+        <% @bg_url = 'background-backoffice' %>
+    <% else %>
+        <% @bg_url = 'background-user' %>
+    <% end %>
+<% elsif current_page?(edit_user_registration_path) %>
+    <% @bg_url = 'background-profile' %>
+<% else %>
+    <% @bg_url = 'background-cart' %>
+<% end %>
+
+<div class="<%= @bg_url %>">
     <div class="layer">
         <div class="container1" >
             <div>
@@ -10,13 +22,13 @@
                 <% end %>
                 <% if user_signed_in? %>
                     <%= link_to "Perfil", edit_user_registration_path, class:"nav-item nav-link links" %>
+                    <a class="nav-item nav-link">|</a>
+                    <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "nav-item nav-link links" %>
                 <% else %>
                     <%= link_to "Login", new_user_session_path, class:"nav-item nav-link links" %>
                     <%= link_to "Criar conta", new_user_registration_path, class:"nav-item nav-link links" %>
                 <% end %>
-                <a class="nav-item nav-link">|</a>
-                <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "nav-item nav-link links" %>
-            </div>
+                </div>
         </div>
         <div class="title">
             <% if user_signed_in? && current_user.admin? %>
