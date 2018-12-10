@@ -1,11 +1,14 @@
 class Meal < ApplicationRecord
-  # belongs_to :category
+  belongs_to :category , inverse_of: :meals
+  has_many :order_meals, inverse_of: :meals
+
 
   has_one_attached :image
 
-validates :name, presence: true
+validates :name, presence: true, uniqueness: true
 validates :description, presence: true
-validates :price, presence: true
+validates :price, presence: true, numericality: { greater_than_or_equal_to: 0.00}
+validates :category , presence: true
 
 validate :correct_image_type
 
