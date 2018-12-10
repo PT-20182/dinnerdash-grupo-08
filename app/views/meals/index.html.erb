@@ -7,6 +7,7 @@
         <td> <%= button_to 'Delete', meal_path(meal), method: :delete, data: {confirm:"Are you sure ?"} %> </td>
     </tr>
 </table>
+    <%= select("put", "qtd", 1..5 )%>
     <%= link_to "add ao carrinho", add_item_path(id: meal.id), method: :put %>
     <%#= link_to "tirar do carrinho",  method: :delete, data: { confirm: 'Are you sure?' }%>
     <% end %>
