@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'categories#index'
 
+  put '/add_item', to: 'cart#add_item', as: 'add_item'
+
   resources :meals
   resources :situations
 
