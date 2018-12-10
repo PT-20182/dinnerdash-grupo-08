@@ -1,57 +1,59 @@
 class MealsController < ApplicationController
-
+    before_action :get_categories
+    before_action :check_admin_status, only: [:new, :edit]
     before_action :current_meal, only: [:show, :edit, :update, :destroy]
 
-  def index
-      @meals = Meal.all
-  end
+    def get_categories
+        @categories = Category.all
+    end
 
-  def show
+    def index
+        @meals = Meal.all
+    end
 
-  end
+    def show
 
-  def create
-      @meal = Meal.new(meal_params)
-      if @meal.save!
-          redirect_to meal_path(@meal)
-      else
-          flash[:notice] = "Sua vida acabou..."
-          render :new
-      end
+    end
 
+    def create
+        @meal = Meal.new(meal_params)
+        if @meal.save!
+            redirect_to meal_path(@meal)
+        else
+            flash[:notice] = "Sua vida acabou..."
+            render :new
+        end
+    end
 
+    def new
+        @meal = Meal.new
+    end
 
-  end
+    def edit
 
-  def new
-      @meal = Meal.new
-  end
+    end
 
-  def edit
+    def update
+        @meal.update(meal_params)
 
-  end
+        redirect_to meal_path(@meal)
+    end
 
-  def update
-      @meal.update(meal_params)
+    def destroy
+        @meal.destroy
 
-      redirect_to meal_path(@meal)
-  end
+        redirect_to meals_path
+    end
 
-  def destroy
-      @meal.destroy
+    private
 
-      redirect_to meals_path
-  end
+    def meal_params
+        params.require(:meal).permit(:name,:description, :price, :available, :image, :category_id)
+    end
 
-  private
-
-  def meal_params
-      params.require(:meal).permit(:name,:description, :price, :available, :image)
-  end
-
-  def current_meal
-      @meal = Meal.find(params[:id])
-  end
+    def current_meal
+        @meal = Meal.find(params[:id])
+    end
 
   def is_admin
      if current_user.admin == true
