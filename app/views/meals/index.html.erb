@@ -1,3 +1,4 @@
+<% session[:cart] ||= [] %>
 <%= render "layouts/banner" %>
 
 <% if user_signed_in? && current_user.admin? %>
@@ -34,7 +35,11 @@
                                         <%= button_to 'Excluir', meal_path(meal), method: :delete, data: {confirm:"Are you sure ?"}, class: "btn btn-danger" %>
                                     </div>
                                 <% else %>
-                                    
+                                    <%= form_tag(add_item_path, method: :put) do %>
+                                        <%= hidden_field_tag :meal_id, meal.id %>
+                                        <%= number_field_tag :quantity,'Quantidade', min: 1, max: 100 ,class: "form-control form-login form-ticket", placeholder: "Quantidade" %>
+                                        <%= submit_tag "adicionar ao meu prato", class: "btn btn-success" %></span>
+                                    <% end %>
                                 <% end %>
                             </div>
                         </div>
@@ -44,4 +49,6 @@
         <% end %>
     </table>
 </div>
+<%= session[:cart] %>
+
 <%= render "layouts/footer" %>
