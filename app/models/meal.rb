@@ -1,7 +1,7 @@
 class Meal < ApplicationRecord
-  belongs_to :category , inverse_of: :meals
-  has_many :order_meals, inverse_of: :meals
-
+  belongs_to :category
+  has_many :order_meals
+  after_create :has_image
 
   has_one_attached :image
 
@@ -20,4 +20,11 @@ def correct_image_type
         image.attach(io: File.open(Rails.root.join('app/assets/images/Make-meals-healthy-interesting.jpg')), filename: 'Make-meals-healthy-interesting.jpg', content_type: 'image/jpg')
     end
 end
+
+def has_image
+    if !self.image.attached?
+        self.image.attach(io: File.open(Rails.root.join('app/assets/images/Make-meals-healthy-interesting.jpg')), filename: 'Make-meals-healthy-interesting.jpg', content_type: 'image/jpg')
+    end
+end
+
 end

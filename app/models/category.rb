@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-    has_many :meals , inverse_of: :category
+    has_many :meals 
     validates :name ,  presence: true
 
 end

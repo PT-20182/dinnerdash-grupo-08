@@ -1,3 +1,3 @@
 class Situation < ApplicationRecord
-    has_many :orders, inverse_of: :situation
+    has_many :orders
 end
