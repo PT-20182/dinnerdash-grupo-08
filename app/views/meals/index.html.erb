@@ -1,4 +1,3 @@
-<% session[:cart] ||= [] %>
 <table>
     <% @meals.each do |meal| %>
     <tr>
@@ -6,13 +5,8 @@
         <td> <%= button_to "Update", edit_meal_path(meal), method: :get %> </td>
         <td> <%= button_to 'Delete', meal_path(meal), method: :delete, data: {confirm:"Are you sure ?"} %> </td>
     </tr>
-</table>
-    <%= select("put", "qtd", 1..5 )%>
-    <%= link_to "add ao carrinho", add_item_path(id: meal.id), method: :put %>
-    <%#= link_to "tirar do carrinho",  method: :delete, data: { confirm: 'Are you sure?' }%>
     <% end %>
+</table>
     
 <%= link_to 'Create a Meal', new_meal_path %>
 
-
-<%= session[:cart] %>

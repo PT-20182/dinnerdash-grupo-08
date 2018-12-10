@@ -4,7 +4,7 @@ class CartController < ApplicationController
 
     def add_item
 
-       @item = params[:id]
+       @item = {id: params[:meal_id], qtd: params[:quantity]}  
 
        set_cart.push(@item)
 
