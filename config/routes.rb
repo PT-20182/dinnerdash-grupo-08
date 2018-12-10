@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :categories
 
-  root to: 'categories#index'
+  root to: 'meals#index'
 
   resources :meals
   resources :situations
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :users
-
+ 
 end

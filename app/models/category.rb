@@ -1,7 +1,3 @@
 class Category < ApplicationRecord
-
-    has_many :meals 
-    validates :name ,  presence: true
-
-
+    has_many :meals
 end
