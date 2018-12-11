@@ -38,7 +38,7 @@
                                     <%= form_tag(add_item_path, method: :put) do %>
                                         <%= hidden_field_tag :meal_id, meal.id %>
                                         <%= number_field_tag :quantity,'Quantidade', min: 1, max: 100 ,class: "form-control form-login form-ticket", placeholder: "Quantidade" %>
-                                        <%= submit_tag "adicionar ao meu prato", class: "btn btn-success" %></span>
+                                        <%= submit_tag "adicionar ao meu prato", class: "btn btn-success" %>
                                     <% end %>
                                 <% end %>
                             </div>
