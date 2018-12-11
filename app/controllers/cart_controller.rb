@@ -6,20 +6,16 @@ class CartController < ApplicationController
 
         @item = {id: params[:meal_id], qtd: params[:quantity]}  
 
-        @already_in = false
-
-        set_cart.each do |included_item|
-            if @item["id"] == included_item["id"]
-                @already_in = true
-                break
+        if set_cart.select {|item| item["id"] == params[:meal_id]} != []
+            set_cart.map! do |item|
+                if item["id"] == params[:meal_id]
+                    {"id" => item["id"], "qtd" => item["qtd"].to_i + params[:quantity].to_i}
+                else
+                    item
+                end
             end
-        end
-
-        if @already_in
-            
         else
             set_cart.push(@item)
-
         end
 
         redirect_to root_path
