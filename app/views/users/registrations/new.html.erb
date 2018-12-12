@@ -2,7 +2,7 @@
   <%= image_tag  "login-signup.jpg", class:"bg-image"%>
 </div>
 <div class = "loginMenu">
-  <h2>Criar conta</h2>
+  <h2>Sign up</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -13,17 +13,17 @@
     </div>
 
     <div class="field">
-      <%= f.label "Nome completo" %><br />
+      <%= f.label :full_name %><br />
       <%= f.text_field :full_name, autocomplete: "full-name" %>
     </div>
 
     <div class="field">
-      <%= f.label "Nome de usuário" %><br />
+      <%= f.label :username %><br />
       <%= f.text_field :username, autocomplete: "username" %>
     </div>
 
     <div class="field">
-      <%= f.label "Senha" %>
+      <%= f.label :password %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
@@ -31,16 +31,15 @@
     </div>
 
     <div class="field">
-      <%= f.label "Confirmar senha" %><br />
+      <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Registrar", class: "menu-button"%>
+      <%= f.submit "Sign up", class: "menu-button"%>
     </div>
   <% end %>
-  <%= link_to 'voltar', :back %>
   <hr>
-  <p>Já possui conta?</p>
+  <p>Has no account yet?</p>
   <%= render "users/shared/links" %>
 </div>
