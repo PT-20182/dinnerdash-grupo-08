@@ -1,28 +1,51 @@
 <%= render "layouts/banner" %>
 
-<div class="container">
-<table class="table table-hover">
-  	<thead class="thead-light ">
- 		<tr>
-      		<th scope="col">Descrição</th>
-      		<th scope="col">Cadastrada em</th>
-      		<th colspan="3"></th>
-    	</tr>
-  	</thead>
-  	<tbody>
-  		<% @situations.each do |situation| %>
+<div class="sbox">
+	<div class="container">
+	<table class="table table-hover">
+		<thead class="thead-light ">
+			<tr>
+				<th scope="col">Descrição</th>
+				<th scope="col">Cadastrada em</th>
+				<th colspan="3"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @situations.each do |situation| %>
 
-   		<tr>
-	     	<td><%= situation.description %></td>
-	     	<td><%= situation.created_at.strftime("%d/%m/%Y") %></td>
-	       	
-	        <td><%= link_to 'editar', edit_situation_path(situation), class:"edit", method: 'get'%></td>
-	        <td><%= link_to 'excluir', situation, class:"remove", method: :delete, data: { confirm: 'Are you sure?' }%></td>
-    	</tr>
-    	<% end %>
-  </tbody>
-</table>
-<%= link_to "novo status do pedido", new_situation_path, class: "btn btn-success" %>
+			<tr>
+				<td><%= situation.description %></td>
+				<td><%= situation.created_at.strftime("%d/%m/%Y") %></td>
+				
+				<td><%= link_to 'editar', edit_situation_path(situation), class:"edit", method: 'get'%></td>
+				<td><%= link_to 'excluir', situation, class:"remove", method: :delete, data: { confirm: 'Are you sure?' }%></td>
+			</tr>
+			<% end %>
+	</tbody>
+	</table>
+	<%= link_to "novo status do pedido", new_situation_path, class: "btn btn-success" %>
+	</div>
+</div>
+
+<div class="button-page">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <%= render "layouts/footer" %>

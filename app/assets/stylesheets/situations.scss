@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.sbox {
+	min-height: 380px;
+	margin-top: 3rem;
+}
+
 .blueLink, .blueLink:hover{
 	color: #007bff;
 }
