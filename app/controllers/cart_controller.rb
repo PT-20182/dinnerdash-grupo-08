@@ -1,44 +1,49 @@
 class CartController < ApplicationController
-
+    
     before_action :set_cart
 
     def add_item
 
-       @item = {id: params[:meal_id], qtd: params[:quantity]}  
-        @Grrrr = {
-             "oi" => "sdds"
-        }
+        @item = {id: params[:meal_id], qtd: params[:quantity]}  
 
-        if search(@item["id"])
-            set_cart.push(@item)
+        if set_cart.select {|item| item["id"] == params[:meal_id]} != []
+            set_cart.map! do |item|
+                if item["id"] == params[:meal_id]
+                    {"id" => item["id"], "qtd" => item["qtd"].to_i + params[:quantity].to_i}
+                else
+                    item
+                end
+            end
         else
-            set_cart.push(@Grrrr)
+            set_cart.push(@item)
         end
-        
-    #    if !set_cart.include?(@item["id"])
-    #         set_cart.push(@item)    
-    #    else 
-    #         set_cart.push(@Grrrr)
-    #    end
 
-       redirect_to meals_path
+        redirect_to root_path
 
     end
 
     def remove_item
-     #  @cart.delete_at(params[item].to_i)
 
-        # if tava no cardapio
-        #     redirect_to meals_path
-        # else 
-        #     redirect_to order_meals_path
-        # end 
+        set_cart.map! do |item|
+            if item["id"] == params[:meal_id]
+                if item["qtd"].to_i - params[:quantity].to_i > 0
+                    {"id" => item["id"], "qtd" => item["qtd"].to_i - params[:quantity].to_i}
+                else
+                    set_cart.delete(item)
+                    break
+                end
+            else
+                item
+            end
+        end
+
+        redirect_to root_path
     end
 
     private
-
+  
     def set_cart
-        session[:cart] ||= [] 
+        session[:cart] ||= []
     end
 
     def search(x)

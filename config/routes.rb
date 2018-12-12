@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :users
 
   put '/add_item', to: 'cart#add_item', as: 'add_item'
- 
+  put '/remove_item', to: 'cart#remove_item', as: 'remove_item'
 end
