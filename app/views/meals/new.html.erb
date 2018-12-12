@@ -41,11 +41,10 @@
                     <%= form.file_field :image, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
                 </span>
              </div>
-
         </div>
 
         <div class="row">
-            <%= form.submit "criar refeição", class:"btn btn-success" %>
+            <%= form.submit "Criar refeição", class:"btn btn-success" %>
             <% end %>
             <%= link_to 'voltar', :back, class:"btn btn-secondary" %>
         </div>
