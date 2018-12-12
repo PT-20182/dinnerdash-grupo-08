@@ -15,14 +15,14 @@
 				<td>
 					<%case situation.description %>
 						<%when "pendente"%>
-                      <div class="statusPending2"><%= situation.description %></div>
-                <%when "entregue"%>
-                      <div class="statusDelivered2"><%= situation.description%></div>
-                <%when "cancelado"%>
-                      <div class="statusCanceled2"><%= situation.description%></div>
-                <%else %>
-                      <div class="statusDefault2"><%= situation.description%></div>
-            <%end%>
+                                <div class="statusPending2"><%= situation.description %></div>
+                            <%when "entregue"%>
+                                <div class="statusDelivered2"><%= situation.description%></div>
+                            <%when "cancelado"%>
+                                <div class="statusCanceled2"><%= situation.description%></div>
+                            <%else %>
+                                <div class="statusDefault2"><%= situation.description%></div>
+                        <%end%>
 				</td>
 				<td><%= situation.created_at.strftime("%d/%m/%Y") %></td>
 				
