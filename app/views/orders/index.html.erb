@@ -21,6 +21,9 @@
                 <td class="text-secondary"><%= order.created_at.strftime("%d/%m/%y") %></td>
                 <td class="text-secondary"><%= User.find(order.user_id).full_name %></td>
                 <td class="text-secondary"><%= order.price %></td>
+                <td class="text-info"><%= link_to "ver itens pedido", order_path(order) %></td>
+                <td class="text-warning"><%=link_to "editar", edit_order_path(order), method: :get%></td>
+                <td class="text-danger"><%=link_to "excluir", orders_path, method: :delete, data: {confirm:"Você tem certeza que quer excluir esse pedido?"} %></td>
             </tr>
         <%end%>
     </tbody>
