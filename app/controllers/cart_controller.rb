@@ -46,4 +46,16 @@ class CartController < ApplicationController
         session[:cart] ||= []
     end
 
+    def search(x)
+        if set_cart.any?
+            set_cart.each do |i|
+                if i["id"] == x
+                    return false     
+                end
+            end    
+        else
+            return true
+        end   
+    end 
+
 end

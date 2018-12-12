@@ -23,6 +23,7 @@
                                 <div class="meal-name">
                                     <%= link_to meal.name, meal_path(meal), class:"meal-link" %>
                                 </div>
+
                             </div>
                         <% end %>
                         <div class="meal-display">
@@ -51,4 +52,5 @@
 </div>
 
 <%= session[:cart] %>
+
 <%= render "layouts/footer" %>
