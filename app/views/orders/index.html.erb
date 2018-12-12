@@ -21,13 +21,13 @@
                     <td class="text-secondary">
                         <% case Situation.find(order.situation_id).description%>
                             <%when "pendente"%>
-                                <span class="btn btn-primary"><%= Situation.find(order.situation_id).description %></span>
+                                <div class="statusPending"><%= Situation.find(order.situation_id).description %></div>
                             <%when "entregue"%>
-                                <span class="btn btn-success"><%= Situation.find(order.situation_id).description %></span>
+                                <div class="statusDelivered"><%= Situation.find(order.situation_id).description %></div>
                             <%when "cancelado"%>
-                                <span class="btn btn-danger"><%= Situation.find(order.situation_id).description %></span>
+                                <div class="statusCanceled"><%= Situation.find(order.situation_id).description %></div>
                             <%else %>
-                                <span class="btn btn-dark"><%= Situation.find(order.situation_id).description %></span>
+                                <div class="statusDefault"><%= Situation.find(order.situation_id).description %></div>
                         <%end%>
                     </td>
                     <td class="text-secondary"><%= order.created_at.strftime("%d/%m/%y") %></td>

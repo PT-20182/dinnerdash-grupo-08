@@ -11,9 +11,19 @@
   	</thead>
   	<tbody>
   		<% @situations.each do |situation| %>
-
 			<tr>
-				<td><%= situation.description %></td>
+				<td>
+					<%case situation.description %>
+						<%when "pendente"%>
+                                <div class="statusPending"><%= situation.description %></div>
+                            <%when "entregue"%>
+                                <div class="statusDelivered"><%= situation.description%></div>
+                            <%when "cancelado"%>
+                                <div class="statusCanceled"><%= situation.description%></div>
+                            <%else %>
+                                <div class="statusDefault"><%= situation.description%></div>
+                        <%end%>
+				</td>
 				<td><%= situation.created_at.strftime("%d/%m/%Y") %></td>
 				
 				<td><%= link_to 'editar', edit_situation_path(situation), class:"edit", method: 'get'%></td>
