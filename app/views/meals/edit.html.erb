@@ -33,9 +33,13 @@
                 <%= form.select :category_id,options_for_select(Category.all.collect {|c| [c.name, c.id] }, selected: @meal.category_id), {}, class: "form-control" %>
             </div>
 
-            <div class="field">
-                <%= form.label "Imagem" %>
-                <%= form.file_field :image %>
+            <div class="input-group">
+                <%= form.label "Foto" %>
+                <%= form.label :Escolher_arquivo, class: "form-control"%>
+                <span class="input-group-btn">
+                    <span class="btn btn-outline-secondary" onclick="$(this).parent().find('input[type=file]').click();">Procurar</span>
+                    <%= form.file_field :image, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+                </span>
             </div>
         </div>
             <div class="row">
