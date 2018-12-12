@@ -7,6 +7,7 @@ class Order < ApplicationRecord
 
     validates :user , presence: true
 
+
     private
 
     def set_situation

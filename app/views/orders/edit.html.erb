@@ -5,7 +5,7 @@
     <%= form_with model: @order do |form|%>
         <div class="field">
             <%= form.label "Número" %> <br />
-            <%= form.text_field :order_id, placeholder: @order.id, readonly:true %>
+            <%= form.text_field :order_id, placeholder: @order.id, readonly:true, value: @order.id %>
         </div>
 
         <div class="form-group">
@@ -15,17 +15,17 @@
 
         <div class="field">
             <%= form.label "Data"%> <br />
-            <%= form.text_field :order_created_at, placeholder: @order.created_at.strftime("%d/%m/%y"), readonly:true %>
+            <%= form.text_field :order_created_at, placeholder: @order.created_at.strftime("%d/%m/%y"), readonly:true, value: @order.created_at.strftime("%d/%m/%y") %>
         </div>
 
         <div class="field">
             <%= form.label "Usuário" %> <br />
-            <%= form.text_field :user_full_name, placeholder: User.find(@order.user_id).full_name, readonly:true%>
+            <%= form.text_field :user_full_name, placeholder: User.find(@order.user_id).full_name, readonly:true, value: User.find(@order.user_id).full_name %>
         </div>
 
         <div class="field">
             <%= form.label "Preço Total" %> <br />
-            <%= form.text_field :order_price, placeholder: @order.price, readonly:true %>
+            <%= form.text_field :order_price, placeholder: @order.price, readonly:true, value:@order.price %>
         </div>
 
         <div>
