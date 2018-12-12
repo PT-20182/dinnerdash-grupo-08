@@ -38,7 +38,7 @@ class SituationsController < ApplicationController
   end
 
   def current_status
-     @situation = Situation.find(params[:id])
+    @situation = Situation.find(params[:id])
   end
 
 end
