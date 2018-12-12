@@ -1,8 +1,7 @@
 <% session[:cart] ||= [] %>
 <%= render "layouts/banner" %>
 
-<div class="container box-margin">
-    <div class="box">
+    <div class="container box">
         <table>
             <% @categories.each do |category| %>
                 <% unless @meals.where(category_id: category.id).empty? %>
@@ -29,8 +28,8 @@
                                     <h5><%= number_to_currency(meal.price, unit: "R$", separator: ",") %> por porção</h5>
                                     <% if user_signed_in? && current_user.admin? %>
                                         <div class="meal-buttons">
-                                            <%= button_to "Editar", edit_meal_path(meal), method: :get, class: "btn btn-warning" %>
-                                            <%= button_to 'Excluir', meal_path(meal), method: :delete, data: {confirm:"Are you sure ?"}, class: "btn btn-danger" %>
+                                            <%= link_to "Editar", edit_meal_path(meal), method: :get, class: "btn btn-warning" %>
+                                            <%= link_to 'Excluir', meal_path(meal), method: :delete, data: {confirm:"Are you sure ?"}, class: "btn btn-danger" %>
                                         </div>
                                     <% else %>
                                         <%= form_tag(add_item_path, method: :put) do %>
@@ -46,10 +45,12 @@
                 <% end %>
             <% end %>
         </table>
+        <div>
+            <% if user_signed_in? && current_user.admin? %>
+            <%= link_to 'nova refeição', new_meal_path, class:"btn btn-success" %>
+            <% end %>
+        </div>
     </div>
-    <% if user_signed_in? && current_user.admin? %>
-        <%= link_to 'Adicionar nova refeição', new_meal_path, class:"btn btn-success" %>
-    <% end %>
-</div>
 <%= session[:cart] %>
+
 <%= render "layouts/footer" %>

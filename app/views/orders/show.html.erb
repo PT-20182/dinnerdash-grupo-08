@@ -1,0 +1,12 @@
+<%= render "layouts/banner" %>
+
+<h1><%= @order.price %></h1>
+<h2><%= User.find(@order.user_id).full_name %></h2>
+<h3><%= Meal.find(@order.meals.ids) %></h3>
+<h4><%= Situation.find(@order.situation_id).description %></h4>
+
+<div>
+    <%= link_to 'Voltar', orders_path, class:"btn btn-secondary" %>
+</div>
+
+<%= render "layouts/footer" %>

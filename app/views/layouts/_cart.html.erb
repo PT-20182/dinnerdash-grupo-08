@@ -1,0 +1,62 @@
+<hr>
+<% if current_page?(root_path) %>
+    <h2>Finalizou seu pedido?</h2>
+<% end %>
+<div class="order-box">
+    <p>Confira os intens pedidos antes de finalizar o pedido.</p>
+    <div class="row">
+        <div class="column">
+            <% session[:cart].each_with_index do |item, index| %>
+                <% if index.even? %>
+                    <% @ordered_meal = Meal.find_by(id: item["id"]) %>
+                    <div class="cart-item">
+                        <div class="column-item-img">
+                            <%= image_tag @ordered_meal.image, class:"item-bg" %>
+                        </div>
+                        <div class="column-item-info">
+                            <h5><%= @ordered_meal.name %></h5>
+                            <p>Quantidade: <%= item["qtd"] %></p>
+                            <p>Preço unitário: <%= number_to_currency(@ordered_meal.price, unit: "R$", separator: ",") %></p>
+                            <p>Preço total: <%= number_to_currency(item["qtd"].to_i*@ordered_meal.price, unit: "R$", separator: ",") %></p>
+                        </div>
+                        <div class="column-item-form">
+                            <p>Quantidade</p>
+                            <%= form_tag(remove_item_path, method: :put) do %>
+                                <%= hidden_field_tag :meal_id, @ordered_meal.id %>
+                                <%= number_field_tag :quantity,'Quantidade', min: 1, max: item["qtd"] ,class: "form-control form-login form-ticket quantity-item-select", value: 1 %>
+                                <%= submit_tag "remover do meu prato", class: "btn btn-outline-danger" %></span>
+                            <% end %>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+
+        <div class="column">
+            <% session[:cart].each_with_index do |item, index| %>
+                <% if index.odd? %>
+                    <% @ordered_meal = Meal.find_by(id: item["id"]) %>
+                    <div class="cart-item">
+                        <div class="column-item-img">
+                            <%= image_tag @ordered_meal.image, class:"item-bg" %>
+                        </div>
+                        <div class="column-item-info">
+                            <h5><%= @ordered_meal.name %></h5>
+                            <p>Quantidade: <%= item["qtd"] %></p>
+                            <p>Preço unitário: <%= number_to_currency(@ordered_meal.price, unit: "R$", separator: ",") %></p>
+                            <p>Preço total: <%= number_to_currency(item["qtd"].to_i*@ordered_meal.price, unit: "R$", separator: ",") %></p>
+                        </div>
+                        <div class="column-item-form">
+                            <p>Quantidade</p>
+                            <%= form_tag(remove_item_path, method: :put) do %>
+                                <%= hidden_field_tag :meal_id, @ordered_meal.id %>
+                                <%= number_field_tag :quantity,'Quantidade', min: 1, max: item["qtd"] ,class: "form-control form-login form-ticket quantity-item-select", value: 1 %>
+                                <%= submit_tag "remover do meu prato", class: "btn btn-outline-danger" %></span>
+                            <% end %>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

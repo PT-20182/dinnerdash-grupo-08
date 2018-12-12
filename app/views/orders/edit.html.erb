@@ -1,0 +1,45 @@
+<%=  render "layouts/banner"%>
+
+<div class="container">
+    <div class="title-field">
+        <h3>Editar pedido</h3>
+    <hr class="mt-0">
+    </div>
+    
+    <%= form_with model: @order do |form|%>
+         <div class="edit-box">
+            <div class="field">
+                <%= form.label "Número" %> <br />
+                <%= form.text_field :order_id, placeholder: @order.id, readonly:true, value: @order.id,  class: "form-control"  %>
+            </div>
+
+            <div class="field">
+                <%= form.label "Data"%> <br />
+                <%= form.text_field :order_created_at, placeholder: @order.created_at.strftime("%d/%m/%y"), readonly:true, value: @order.created_at.strftime("%d/%m/%y"),  class: "form-control" %>
+            </div>
+
+            <div class="field">
+                <%= form.label "Preço total" %> <br />
+                <%= form.text_field :order_price, placeholder: @order.price, readonly:true, value:@order.price,  class: "form-control" %>
+            </div>
+
+
+            <div class="form-group">
+                <%= form.label "Status"%> <br />
+                <%= form.select :situation_id, options_for_select(Situation.all.collect{|sit| [sit.description, sit.id]}, selected:@order.situation_id), {},  class: "form-control" %>
+            </div>
+
+            <div class="field">
+                <%= form.label "Usuário" %> <br />
+                <%= form.text_field :user_full_name, placeholder: User.find(@order.user_id).full_name, readonly:true, value: User.find(@order.user_id).full_name,  class: "form-control"  %>
+            </div>
+        </div>
+        <div class="row">
+            <%= form.submit "atualizar pedido", class:"btn btn-success" %>
+            <%= link_to 'voltar', orders_path, class:"btn btn-secondary" %>
+        </div>
+    <% end %>
+</div>
+
+
+<%= render "layouts/footer" %>
