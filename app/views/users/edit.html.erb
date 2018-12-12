@@ -28,7 +28,7 @@
 
             <div class="form-group">
                 <%= f.label :Perfil %>
-                <%= f.select(:role, [['Usuário normal', :user],['Administrador', :admin]], class: "custom-select", selected: @user.role)%>
+                <%= f.select :role, options_for_select([['Usuário normal', :user],['Administrador', :admin]], class: "custom-select", selected: @user.role), {}, class: "form-control"%>
             </div> 
 
             <div class="field">
