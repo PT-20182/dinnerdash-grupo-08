@@ -19,30 +19,30 @@
                         <td>4</td>
                         <td><%=category.created_at.strftime("%Y/%m/%d")%></td>
                         <td><%= link_to 'editar', edit_category_path(category), method: 'get', class: "edit" %></td>
-                        <td><%= link_to 'excluir', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "remove" %></td>
+                        <td><%= link_to 'excluir', category, method: :delete, data: { confirm: 'Tem certeza que deseja excluir esta categoria?' }, class: "remove" %></td>
                     </tr>
                 <% end %>
             </tbody>
         </table>
-        <%= link_to "nova categoria de refeição", new_category_path, class: "btn btn-success button"%>
+        <%= link_to "Nova categoria de refeição", new_category_path, class: "btn btn-success button"%>
     </div>
 </div>
 <div class="button-page">
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-            </a>
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
             </li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
             <li class="page-item"><a class="page-link" href="#">2</a></li>
             <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-            </a>
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
             </li>
         </ul>
     </nav>

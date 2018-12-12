@@ -1,10 +1,7 @@
 <% session[:cart] ||= [] %>
 <%= render "layouts/banner" %>
 
-<div class="container">
-    <% if user_signed_in? && current_user.admin? %>
-        <%= link_to 'Adicionar nova refeição', new_meal_path, class:"btn btn-success" %>
-    <% end %>
+<div class="container box-margin">
     <div class="box">
         <table>
             <% @categories.each do |category| %>
@@ -50,6 +47,9 @@
             <% end %>
         </table>
     </div>
+    <% if user_signed_in? && current_user.admin? %>
+        <%= link_to 'Adicionar nova refeição', new_meal_path, class:"btn btn-success" %>
+    <% end %>
 </div>
 <%= session[:cart] %>
 <%= render "layouts/footer" %>

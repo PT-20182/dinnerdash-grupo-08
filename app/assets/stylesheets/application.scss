@@ -17,6 +17,14 @@
 @import "bootstrap";
 @import "banner";
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 0 100px; /* bottom = footer height */
+}
+
 .bg-image {
    position: fixed;
    width: 75em;
@@ -45,6 +53,7 @@
    font-family: 'Open Sans';
    margin: 1em 0;
 }
+
 .menu-button:hover {
    background-color: #0f6e30;
    cursor: pointer;
@@ -65,6 +74,7 @@
    line-height: 2.7em;
    margin-bottom: 4em;
 }
+
 .change-menu:hover {
    text-decoration: none;
    background-color: #29a755;
@@ -76,20 +86,22 @@ div h2 {
    font-family: 'Open Sans';
    color: #3f3f3f;
 }
+
 div p {
    font-family: 'Open Sans';
    color: #3f3f3f;
    font-size: 1em;
 }
+
 .field *{
    font-family: 'Open Sans';
    color: #3f3f3f;
    font-size: 1em;
 }
+
 .field {
    margin-bottom: 1em;
 }
-
 
 .perfilMenu {
    display: flex;
@@ -101,20 +113,24 @@ div p {
    background-size: 100%;
    background-position: center;
 }
+
 .top-div {
    display: flex;
    justify-content: space-between;
 }
+
 .perfilMenu h3 {
    font-family: Amaranth;
    color: white;
 }
+
 .perfilMenu h1 {
    font-family: sans-serif;
    font-weight: 400;
    color: white;
    margin-top: 2em;
 }
+
 .perfilMenu p {
    font-family: sans-serif;
    font-weight: 500;
@@ -126,6 +142,7 @@ div p {
 .link {
    color: yellow;
 }
+
 .link:hover {
    text-decoration: none;
 }
@@ -138,11 +155,11 @@ div p {
    flex-direction: column;
    flex-wrap: wrap;
 }
+
 .form-box div{
    width: 50%;
    margin: 0.5em;
 }
-
 
 .title-field {
    padding: 1em;
@@ -161,11 +178,11 @@ div p {
    flex-direction: column;
    flex-wrap: wrap;
 }
+
 .edit-box div{
    width: 50%;
    margin: 0.5em;
 }
-
 
 .meal-edit-box {
    height: 25em;
