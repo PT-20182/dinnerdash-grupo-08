@@ -1,45 +1,53 @@
 <%= render "layouts/banner" %>
 
-<h2>Create a Meal</h2>
-
-<%= form_with model: @meal do |form| %>
-    <div class="edit-box meal-edit-box">
-        <div class="field">
-            <%= form.label "Nome" %> <br />
-            <%= form.text_field :name, placeholder: "Nome"%>
-        </div>
-
-        <div class="field">
-            <%= form.label "Descrição" %> <br />
-            <%= form.text_area :description, rows: 3, placeholder: "Descrição"%>
-        </div>
-
-        <div class="field">
-            <%= form.label "Preço" %> <br />
-            <%= form.text_field :price, placeholder: "Preço"%>
-        </div>
-        
-        <%= form.submit "Criar refeição", class:"btn btn-success" %>
-        
-        <div class="form-group">
-            <label for="sel1">Disponibilidade</label><br />
-            <%= form.select(:available, [['Disponível', true],['Indisponível', false]], selected: true) %>
-        </div>
-
-        <div class="form-group">
-            <label for="sel1">Categoria</label><br />
-            <%= form.select(:category_id, Category.all.collect {|c| [c.name, c.id] }, selected: @meal.category_id) %>
-        </div>
-
-        <div class="field">
-            <%= form.label "Imagem" %>
-            <%= form.file_field :image %>
-        </div>
-
-        <div>
-            <%= link_to 'Voltar', :back, class:"btn btn-secondary" %>
-        </div>
+<div class="container">
+    <div class="title-field">
+        <h4>Nova refeição</h4>      
+    <hr>
     </div>
-<% end %>
 
+    <%= form_with model: @meal do |form| %>
+        <div class="edit-box meal-edit-box">
+            <div class="field">
+                <%= form.label "Nome" %> <br />
+                <%= form.text_field :name, placeholder: "Nome", class: "form-control"%>
+            </div>
+
+            <div class="field">
+                <%= form.label "Descrição" %> <br />
+                <%= form.text_area :description, rows: 3, placeholder: "Descrição", class: "form-control"%>
+            </div>
+
+            <div class="field">
+                <%= form.label "Preço" %> <br />
+                <%= form.text_field :price, placeholder: "Preço", class: "form-control"%>
+            </div>
+         
+            <div class="form-group">
+                <label for="sel1">Disponibilidade</label><br />
+                <%= form.select :available, options_for_select([['Disponível', true],['Indisponível', false]], selected: true), {}, class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+                <label for="sel1">Categoria</label><br />
+                <%= form.select :category_id, options_for_select(Category.all.collect {|c| [c.name, c.id] }, selected: @meal.category_id), {}, class: "form-control"%>
+            </div> 
+
+            <div class="input-group">
+                <%= form.label "Foto" %>
+                <%= form.label :Escolher_arquivo, class: "form-control"%>
+                <span class="input-group-btn">
+                    <span class="btn btn-outline-secondary" onclick="$(this).parent().find('input[type=file]').click();">Procurar</span>
+                    <%= form.file_field :image, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+                </span>
+             </div>
+
+        </div>
+
+        <div class="row">
+            <%= form.submit "criar refeição", class:"btn btn-success" %>
+            <% end %>
+            <%= link_to 'voltar', :back, class:"btn btn-secondary" %>
+        </div>
+</div>
 <%= render "layouts/footer" %>
