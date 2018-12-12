@@ -33,7 +33,7 @@
                     <td class="text-secondary"><%= order.created_at.strftime("%d/%m/%y") %></td>
                     <td class="text-secondary"><%= User.find(order.user_id).full_name %></td>
                     <td class="text-secondary"><%= order.price %></td>
-                    <td ><%= link_to "ver itens pedido", order_path(order) ,class:"text-info" %></td>
+                    <td ><%= link_to "ver itens pedidos", order_path(order) ,class:"text-info" %></td>
                     <td ><%=link_to "editar", edit_order_path(order), method: :get, class:"text-warning"%></td>
                     <td ><%=link_to "excluir", orders_path, method: :delete, data: {confirm:"Você tem certeza que quer excluir esse pedido?"}, class:"text-danger" %></td>
                 </tr>
