@@ -27,24 +27,19 @@
         <%= link_to "Nova categoria de refeição", new_category_path, class: "btn btn-success button"%>
     </div>
 </div>
+
 <div class="button-page">
     <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
+        <ul class="pagination justify-content-center pager">
+            <li class="page-item page-link previous <%= @page == 0 ? 'disabled' : '' %>">
+                <%= link_to_if @page > 0, "<<", categories_path(page: @page - 1) %>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
+        
+            <li class="page-item page-link next">
+                <%= link_to ">>", categories_path(page: @page + 1) %>
             </li>
         </ul>
     </nav>
 </div>
+
 <%= render 'layouts/footer'%>

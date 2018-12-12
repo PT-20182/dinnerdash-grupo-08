@@ -2,8 +2,12 @@ class OrdersController < ApplicationController
   before_action :check_admin_status , only: [:index, :edit, :show, :destroy]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
+  ORDERS_SIZE = 5
+
   def index
       @orders = Order.all
+      @page = (params[:page] || 0).to_i
+      @orders = Order.offset(ORDERS_SIZE * @page).limit(ORDERS_SIZE)
   end
 
   def show

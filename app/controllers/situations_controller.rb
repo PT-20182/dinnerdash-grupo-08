@@ -1,8 +1,14 @@
 class SituationsController < ApplicationController
+
   before_action :current_status, only: [:edit, :update, :destroy]
   before_action :check_admin_status
+
+  SITUATIONS_SIZE = 5
+
   def index
     @situations = Situation.all
+    @page = (params[:page] || 0).to_i
+    @situations = Situation.offset(SITUATIONS_SIZE * @page).limit(SITUATIONS_SIZE)
   end
 
   def new
