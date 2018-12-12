@@ -2,11 +2,15 @@ class CategoriesController < ApplicationController
     
     before_action :current_category, only: [:show, :edit, :update, :destroy]
     before_action :check_admin_status
-
+    
+    CATEGORIES_SIZE = 5
+    
     def index
         @categories = Category.all
+        @page = (params[:page] || 0).to_i
+        @categories = Category.offset(CATEGORIES_SIZE * @page).limit(CATEGORIES_SIZE)
     end
-    
+     
     def show
         
     end

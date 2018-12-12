@@ -2,8 +2,12 @@ class UsersController < ApplicationController
     
     before_action :check_admin_status
 
+    USERS_SIZE = 5
+
     def index
         @users = User.all
+        @page = (params[:page] || 0).to_i
+        @users = User.offset(USERS_SIZE * @page).limit(USERS_SIZE)
     end
 
     def edit

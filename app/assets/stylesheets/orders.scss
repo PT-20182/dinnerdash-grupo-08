@@ -1,3 +1,36 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.statusPending{
+	background-color: #007bff;
+	border-radius: 4px 4px 4px 4px;
+	padding: 0.05em 0 0.05em 0;
+	color: #fff;
+	text-align: center;
+	width: 90%;
+}
+.statusDelivered{
+	background-color: #28a745;
+	border-radius: 4px 4px 4px 4px;
+	padding: 0.05em 0 0.05em 0;
+	color: #fff;
+	text-align: center;
+	width: 90%;
+}
+.statusCanceled{
+	background-color: #E82431;
+	border-radius: 4px 4px 4px 4px;
+	padding: 0.05em 0 0.05em 0;
+	color: #fff;
+	text-align: center;
+	width: 90%;
+}
+.statusDefault{
+	background-color: #343a40;;
+	border-radius: 4px 4px 4px 4px;
+	padding: 0.05em 0 0.05em 0;
+	color: #fff;
+	text-align: center;
+	width: 90%;
+}
