@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :check_admin_status , only: [:index, :edit, :show, :destroy]
+  before_action :check_admin_status , only: [:edit, :destroy]
+  before_action :check_user
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -55,6 +56,13 @@ class OrdersController < ApplicationController
 
   def set_order
       @order = Order.find(params[:id])
+  end
+
+  def check_user
+    unless user_signed_in?
+        redirect_to new_user_session_path
+        flash[:warning] = "Faça login ou crie sua conta antes."
+    end
   end
 
 end
