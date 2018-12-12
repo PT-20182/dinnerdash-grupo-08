@@ -14,9 +14,25 @@ class OrdersController < ApplicationController
   end
 
   def create
-      @order = Order.new(order_params)
+
+      sum = 0
+      session[:cart].each do |item|
+            sum += Meal.find(item["id"]).price * item["qtd"].to_i
+      end
+
+      @order = Order.new(situation_id:1 , user_id:current_user.id, price:sum)
+
       @order.save!
-      redirect_to orders_path
+
+
+
+      session[:cart].each do |item|
+          @order_meal = OrderMeal.new(order_id: @order.id, meal_id: item["id"], quantity:item["qtd"].to_i)
+          @order_meal.save!
+      end
+
+
+      redirect_to root_path
   end
 
   def edit
@@ -40,4 +56,5 @@ class OrdersController < ApplicationController
   def set_order
       @order = Order.find(params[:id])
   end
+
 end
