@@ -2,16 +2,16 @@
 
 <div class="oi">
     <div class="container box">
-        <h3 class="mb-1" >Criar nova categoria</h3>
+        <h3 class="mb-1 font-cat" >Nova categoria de refeição</h3>
         <hr class="mt-0">
         <%= form_with model: @category do |form| %>
-            <div class="form-group">
+            <div class="form-group box-cat">
                 <%= form.label :Nome %>
                 <%= form.text_field :name, class: "form-control" %>
             </div>
-            <div class="row">
-                <%= form.submit "Criar categoria", class: "btn btn-success m-2"%>
-                <%= link_to 'voltar', categories_path, class: "btn btn-secondary m-2" %>
+            <div class="row row-cat">
+                <%= form.submit "criar categoria de refeição", class: "btn btn-success m-2 create-button"%>
+                <%= link_to 'voltar', categories_path, class: "btn btn-secondary m-2 back-button" %>
             </div>
         <% end %>
     </div>
