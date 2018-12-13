@@ -1,0 +1,53 @@
+// Place all the styles related to the situations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sbox {
+	min-height: 380px;
+	margin-top: 3rem;
+}
+
+.blueLink, .blueLink:hover{
+	color: #007bff;
+}
+
+.yellowLink,.yellowLink:hover{
+	color: #FDDF4C;
+}
+
+.redLink, .redLink:hover{
+	color: #E82431;
+}
+
+.statusPending2 {
+	background-color: #007bff;
+	border-radius: 4px 4px 4px 4px;
+	padding: 0.25em 0 0.25em 0;
+	color: #fff;
+	text-align: center;
+	width: 50%;
+}
+.statusDelivered2 {
+	background-color: #28a745;
+	border-radius: 4px 4px 4px 4px;
+	padding: 0.25em 0 0.25em 0;
+	color: #fff;
+	text-align: center;
+	width: 50%;
+}
+.statusCanceled2 {
+	background-color: #E82431;
+	border-radius: 4px 4px 4px 4px;
+	padding: 0.25em 0 0.25em 0;
+	color: #fff;
+	text-align: center;
+	width: 50%;
+}
+.statusDefault2 {
+	background-color: #343a40;;
+	border-radius: 4px 4px 4px 4px;
+	padding: 0.25em 0 0.25em 0;
+	color: #fff;
+	text-align: center;
+	width: 50%;
+}

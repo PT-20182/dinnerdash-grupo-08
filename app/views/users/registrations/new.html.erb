@@ -1,0 +1,46 @@
+<div>
+  <%= image_tag  "login-signup.jpg", class:"bg-img"%>
+</div>
+<div class = "loginMenu">
+  <h2 id="ddash">dinnerdash</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+
+    <div class="field">
+      <%= f.label "Nome completo" %><br />
+      <%= f.text_field :full_name, autocomplete: "full-name", class: "form-control" %>
+    </div>
+    
+    <div class="field">
+      <%= f.label "Nome de usuário" %><br />
+      <%= f.text_field :username, autocomplete: "username", class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
+    </div>
+
+    <div class="field">
+      <%= f.label "Senha" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> caracteres mínimos)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Confirme sua senha" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "cadastrar-se", class: "btn btn-success m-2 signup-button"%>
+    </div>
+  <% end %>
+  <hr>
+  <p>Já possui conta?</p>
+  <%= render "users/shared/links" %>
+</div>

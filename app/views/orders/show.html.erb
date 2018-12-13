@@ -1,0 +1,51 @@
+<%= render "layouts/banner" %>
+
+<div class="container">
+    <h3>Detalhes do pedido:</h3>
+    <hr>
+
+
+
+    <div class="row">
+        <div class="column">
+            <% @order.meals.each_with_index do |meal, index| %>
+                <% if index.even? %>
+                    <div class="cart-item">
+                        <div class="column-item-img">
+                            <%= image_tag meal.image, class:"item-bg" %>
+                        </div>
+                        <div class="column-item-info">
+                            <h5><%= meal.name %></h5>
+                            <p>Quantidade: <%= OrderMeal.where(meal_id: meal.id, order_id: @order.id).first.quantity %></p>
+                            <p>Preço unitário: <%= number_to_currency(meal.price, unit: "R$", separator: ",") %></p>
+                            <p>Preço total: <%= number_to_currency(OrderMeal.where(meal_id: meal.id, order_id: @order.id).first.quantity.to_i*meal.price, unit: "R$", separator: ",") %></p>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+
+        <div class="column">
+            <% @order.meals.each_with_index do |meal, index| %>
+                <% if index.odd? %>
+                    <div class="cart-item">
+                        <div class="column-item-img">
+                            <%= image_tag meal.image, class:"item-bg" %>
+                        </div>
+                        <div class="column-item-info">
+                            <h5><%= meal.name %></h5>
+                            <p>Quantidade: <%= OrderMeal.where(meal_id: meal.id, order_id: @order.id).first.quantity %></p>
+                            <p>Preço unitário: <%= number_to_currency(meal.price, unit: "R$", separator: ",") %></p>
+                            <p>Preço total: <%= number_to_currency(OrderMeal.where(meal_id: meal.id, order_id: @order.id).first.quantity.to_i*meal.price, unit: "R$", separator: ",") %></p>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
+    <div>
+        <%= link_to 'Voltar', orders_path, class:"btn btn-secondary m-2" %>
+    </div>
+</div>
+<%= render "layouts/footer" %>

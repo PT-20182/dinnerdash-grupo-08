@@ -1,0 +1,256 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+@import "banner";
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 0 100px; /* bottom = footer height */
+}
+
+.bg-img {
+    position: fixed;
+    width: 115em;
+    height: 65em;
+    z-index: -1;
+}
+
+.bg-image {
+   position: fixed;
+   width: 75em;
+   height: 50em;
+   z-index: -1;
+}
+
+.loginMenu {
+   width: 38%;
+   height: 100vh;
+   background-color: #fff;
+   z-index: 1;
+   float: right;
+   padding: 5em 4.5%;
+   overflow: scroll;
+}
+
+.update-button {
+    width: 80%;
+}
+
+.login-button {
+    width: 100%;
+}
+
+.login-button:hover {
+    background-color: #0f6e30;
+    cursor: pointer;
+ }
+
+.signup-button {
+    width: 100%;
+}
+
+.signup-button:hover {
+   background-color: #0f6e30;
+   cursor: pointer;
+}
+
+.change-menu {
+   text-decoration: none;
+   display: inline-block;
+   width: 100%;
+   background-color: white;
+   color: #29a755;
+   height: 2.7em;
+   border-radius: 2px;
+   border: solid #29a755 1px;
+   font-size: 0.8em;
+   font-family: 'Open Sans';
+   text-align: center;
+   line-height: 2.7em;
+   margin-bottom: 4em;
+}
+
+.change-menu:hover {
+   text-decoration: none;
+   background-color: #29a755;
+   color: white;
+   cursor: pointer;
+}
+
+#ddash {
+	margin-bottom: 30px;
+	font-size: 2.5em;
+	font-weight: bold;
+}
+
+div h2 {
+   font-family: "Circular Std Book", Helvetica, serif;
+   color: #3f3f3f;
+}
+
+div p {
+   font-family: 'Open Sans';
+   color: #3f3f3f;
+   font-size: 1em;
+}
+
+.field *{
+   font-family: 'Open Sans';
+   color: #3f3f3f;
+   font-size: 1em;
+}
+
+.field {
+   margin-bottom: 1em;
+}
+
+.perfilMenu {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   padding: 1em 3.5em;
+   height: 20em;
+   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("restaurant.jpeg");
+   background-size: 100%;
+   background-position: center;
+}
+
+.top-div {
+   display: flex;
+   justify-content: space-between;
+}
+
+.perfilMenu h3 {
+   font-family: Amaranth;
+   color: white;
+}
+
+.perfilMenu h1 {
+   font-family: sans-serif;
+   font-weight: 400;
+   color: white;
+   margin-top: 2em;
+}
+
+.perfilMenu p {
+   font-family: sans-serif;
+   font-weight: 500;
+   color: white;
+   margin: 3px 0;
+   font-size: 1.2sem;
+}
+
+.link {
+   color: white;
+}
+
+.link:hover {
+   text-decoration: none;
+   color: white;
+   font-weight: bold;
+}
+
+.form-box {
+   align-content: space-between;
+   padding: 1em 1em;
+   height: 23em;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+
+.form-box div{
+   width: 50%;
+   margin: 0.5em;
+}
+
+.title-field {
+   padding: 1em;
+   height: 3em;
+}
+
+.badge {
+   margin-right: 0.25em;
+}
+
+.edit-box {
+   align-content: space-around;
+   padding: 1em 1em;
+   height: 21em;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+
+.edit-box div{
+   width: 50%;
+   margin: 0.5em;
+}
+
+.meal-edit-box {
+   height: 25em;
+}
+
+
+//Daqui pra baixo é coisa do carrinho que eu não sabia onde colocar
+
+.order-box {
+   padding-left: 1em;
+}
+
+.cart-item {
+   display: flex;
+   margin: 1em;
+}
+.cart-item h5 {
+   margin-block-end: 0.5em;
+}
+.cart-item p {
+   margin: 0;
+   color: gray;
+}
+
+ 
+.column {
+   flex: 50%;
+}
+
+.column-item-mg {
+   flex: 25%;
+}
+.column-item-info {
+   flex: 40%;
+   flex-direction: column;
+}
+.column-item-form {
+   flex: 35%;
+   flex-direction: column;
+}
+
+.quantity-item-select {
+   width: 181px;
+}
+
+.item-bg {
+   margin-right: 0.5em; 
+   height: 7em;
+   width: 7em;
+   position: relative;
+}

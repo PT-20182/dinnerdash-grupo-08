@@ -1,0 +1,53 @@
+<%= render "layouts/banner" %>
+
+<div class="oi">
+    <div class="container box">
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Numero de Refeições</th>
+                <th scope="col">Cadastrada em</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @categories.each do |category| %>
+                    <tr>
+                        <td><%= category.name %></td>
+                        <% 
+                            quantity = 0
+                            @meals.each do |meal|
+                                if meal.category_id == category.id
+                                    quantity += 1
+                                end
+                            end
+                        %>
+                        <td><%= quantity %></td>
+                        <td><%=category.created_at.strftime("%d/%m/%Y")%></td>
+                        <td><%= link_to 'editar', edit_category_path(category), method: 'get', class: "edit" %></td>
+                        <td><%= link_to 'excluir', category, method: :delete, data: { confirm: 'Tem certeza que deseja excluir esta categoria?' }, class: "remove" %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <%= link_to "nova categoria de refeição", new_category_path, class: "btn btn-success m-2 button-cat"%>
+    </div>
+</div>
+
+<div class="button-page">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center pager">
+            <li class="page-item page-link previous <%= @page == 0 ? 'disabled' : '' %>">
+                <%= link_to_if @page > 0, "<<", categories_path(page: @page - 1) %>
+            </li>
+        
+            <li class="page-item page-link next">
+                <%= link_to ">>", categories_path(page: @page + 1) %>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<%= render 'layouts/footer'%>

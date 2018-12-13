@@ -1,0 +1,42 @@
+<%= render "layouts/banner" %>
+<div class="container">
+    <div class="title-field">
+        <h3>Editar usuário</h3>
+    <hr class="mt-0">
+    </div>
+    <%= form_for @user, method: :PUT  do |f| %>
+        <div class="edit-box">
+            <div class="field">
+            <%= f.label :nome_de_usuário %><br />
+            <%= f.text_field :username, placeholder: "username", class: "form-control"  %>
+            </div>
+
+            <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, placeholder: "email", class: "form-control"  %>
+            </div>
+
+            <div class="actions">
+                <%= f.submit "atualizar usuário", class:"btn btn-success m-2" %>
+                <%= link_to 'voltar', :back, class:"btn btn-secondary m-2" %>
+            </div>
+            
+            <div class="field">
+            <%= f.label :nome_completo %><br />
+            <%= f.text_field :full_name, placeholder: "full-name", class: "form-control"  %>
+            </div>
+
+            <div class="form-group">
+                <%= f.label :Perfil %>
+                <%= f.select :role, options_for_select([['Usuário normal', :user],['Administrador', :admin]], class: "custom-select", selected: @user.role), {}, class: "form-control"%>
+            </div> 
+
+            <div class="field">
+            <%= f.label :Cadastrado_em %><br />
+            <%= f.text_field :created_at, value: @user.created_at.strftime("%Y/%m/%d"), disabled: true, class: "form-control"  %>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>
+<%= render 'layouts/footer'%>

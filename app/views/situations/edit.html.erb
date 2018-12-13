@@ -1,0 +1,18 @@
+<%= render "layouts/banner" %>
+
+<div class="container box">
+<h3 class="mb-1" >Editar tipo de status</h3>
+    <hr class="mt-0">
+<%= form_with model: @situation do |form| %>
+ <div class="form-group">
+        <%= form.label :Descrição %>
+        <%= form.text_field :description, class: "form-control" %>
+    </div>
+    <div class="row">
+        <%= form.submit "atualizar status", class: "btn btn-success m-2"%>
+    <% end %>
+     <%= link_to 'voltar', situations_path, class: "btn btn-secondary m-2" %>
+    </div>
+<div>
+
+<%= render "layouts/footer" %>

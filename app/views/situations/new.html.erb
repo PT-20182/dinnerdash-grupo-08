@@ -1,0 +1,18 @@
+<%= render "layouts/banner" %>
+
+<div class="container">
+<h3 class="mb-1" >Novo status do pedido</h3>
+    <hr class="mt-0">
+    <%= form_with model: @situation do |form| %>
+    <div class="form-group">
+        <%= form.label :Descrição %>
+        <%= form.text_field :description, class: "form-control" %>
+    </div>
+    <div class="row">
+        <%= form.submit "criar status de pedido", class: "btn btn-success m-2"%>
+    <% end %>
+     <%= link_to 'voltar', situations_path, class: "btn btn-secondary m-2" %>
+    </div>
+</div>  
+
+<%= render "layouts/footer" %>
