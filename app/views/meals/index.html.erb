@@ -24,7 +24,7 @@
                                 <% end %>
                                 <div class="meal-display">
                                     <p><%= meal.description %></p>
-                                    <h5><%= number_to_currency(meal.price, unit: "R$", separator: ",") %> por porção</h5>
+                                    <h5><%= number_to_currency(meal.price, unit: "R$ ", separator: ",") %> por porção</h5>
                                     <% if user_signed_in? && current_user.admin? %>
                                         <div class="meal-buttons">
                                             <%= link_to "editar", edit_meal_path(meal), method: :get, class: "btn btn-warning m-2", id: "warning" %>
