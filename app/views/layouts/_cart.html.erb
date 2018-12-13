@@ -1,4 +1,5 @@
 <% unless session[:cart].empty? %>
+<div class="container">
     <% if current_page?(root_path) %>
         <hr>
         <h2>Finalizou seu pedido?</h2>
@@ -6,7 +7,7 @@
         <h2>Seu pedido:</h2>
     <% end %>
     <div class="order-box">
-        <p>Confira os intens pedidos antes de finalizar o pedido.</p>
+        <p class="text-secondary">Confira os intens pedidos antes de finalizar o pedido.</p>
         <div class="row">
             <div class="column">
                 <% session[:cart].each_with_index do |item, index| %>
@@ -71,17 +72,18 @@
         end
     %>
     <% if current_page?(root_path) %>
-        <h3>Preço total do pedido: <%= number_to_currency(sum, unit:"R$", separator:",") %></h3>
-        <%= link_to "Finalizar Pedido", orders_path, class:"btn btn-success"%>
+        <h3>Preço total do pedido: <span  class= "text-success" ><%= number_to_currency(sum, unit:"R$", separator:",")%></span></h3>
+        <%= link_to "finalizar e pagar", orders_path, class:"btn btn-success"%>
     <% else %>
         <div class="row">
             <div class="column">
                 <h2>Esqueceu algo?</h2>
-                <p><%= link_to "Clique aqui", root_path %> para retornar ao nosso menu.</p>
+                <p><%= link_to "Clique aqui", root_path %> <span class="text-secondary"> para retornar ao nosso menu. </span></p>
             </div>
             <div class="column">
-                <h3>Preço total do pedido: <%= sum %></h3>
-                <%= link_to "Finalizar Pedido", orders_path, method: :post, class:"btn btn-success"%>
+                <h3>Preço total do pedido: <span class="text-success"><%=number_to_currency(sum,unit:"R$", separator:",") %></span></h3>
+                <%= link_to "finalizar e pagar", orders_path, method: :post, class:"btn btn-success"%>
             </div>
     <% end %>
 <% end %>
+</div>
