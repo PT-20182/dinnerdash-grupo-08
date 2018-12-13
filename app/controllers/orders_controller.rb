@@ -32,8 +32,9 @@ class OrdersController < ApplicationController
           @order_meal.save!
       end
 
+      session[:cart].clear
 
-      redirect_to root_path
+      redirect_to orders_path
   end
 
   def edit

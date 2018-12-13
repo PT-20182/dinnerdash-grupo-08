@@ -1,9 +1,47 @@
 <%= render "layouts/banner" %>
 
-<h1><%= @order.price %></h1>
-<h2><%= User.find(@order.user_id).full_name %></h2>
-<h3><%= Meal.find(@order.meals.ids) %></h3>
-<h4><%= Situation.find(@order.situation_id).description %></h4>
+<h1>Detalhes do pedido:</h1>
+<hr>
+<h3>Preço total: <%= number_to_currency(@order.price, unit:"R$", separator:",") %></h3>
+
+
+<div class="row">
+    <div class="column">
+        <% @order.meals.each_with_index do |meal, index| %>
+            <% if index.even? %>
+                <div class="cart-item">
+                    <div class="column-item-img">
+                        <%= image_tag meal.image, class:"item-bg" %>
+                    </div>
+                    <div class="column-item-info">
+                        <h5><%= meal.name %></h5>
+                        <p>Quantidade: <%= OrderMeal.where(meal_id: meal.id, order_id: @order.id).first.quantity %></p>
+                        <p>Preço unitário: <%= number_to_currency(meal.price, unit: "R$", separator: ",") %></p>
+                        <p>Preço total: <%= number_to_currency(OrderMeal.where(meal_id: meal.id, order_id: @order.id).first.quantity.to_i*meal.price, unit: "R$", separator: ",") %></p>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+
+    <div class="column">
+        <% @order.meals.each_with_index do |meal, index| %>
+            <% if index.odd? %>
+                <div class="cart-item">
+                    <div class="column-item-img">
+                        <%= image_tag meal.image, class:"item-bg" %>
+                    </div>
+                    <div class="column-item-info">
+                        <h5><%= meal.name %></h5>
+                        <p>Quantidade: <%= OrderMeal.where(meal_id: meal.id, order_id: @order.id).first.quantity %></p>
+                        <p>Preço unitário: <%= number_to_currency(meal.price, unit: "R$", separator: ",") %></p>
+                        <p>Preço total: <%= number_to_currency(OrderMeal.where(meal_id: meal.id, order_id: @order.id).first.quantity.to_i*meal.price, unit: "R$", separator: ",") %></p>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</div>
 
 <div>
     <%= link_to 'Voltar', orders_path, class:"btn btn-secondary" %>

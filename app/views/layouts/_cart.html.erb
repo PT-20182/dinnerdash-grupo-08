@@ -71,7 +71,7 @@
         end
     %>
     <% if current_page?(root_path) %>
-        <h3>Preço total do pedido: <%= sum %></h3>
+        <h3>Preço total do pedido: <%= number_to_currency(sum, unit:"R$", separator:",") %></h3>
         <%= link_to "Finalizar Pedido", orders_path, class:"btn btn-success"%>
     <% else %>
         <div class="row">
