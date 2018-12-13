@@ -49,7 +49,8 @@
 <% elsif !current_user.admin? %>
     <h2>Seu último pedido:</h2>
     <p>Aguarde o seu pedido ser entregue.</p>
-    <% last_order = @orders.order("created_at").last %>
+    <% user_orders = Order.where(user_id: current_user.id) %>
+    <% last_order = user_orders.order("created_at").last %>
     <div class="row">
         <div class="column">
             <% last_order.meals.each_with_index do |meal, index| %>

@@ -68,11 +68,11 @@ User.create!(email: "tobedeleted@user.com", username: "tobedeleted",
         full_name: "tobedeleted dos santos", password: "tobedeleted123", role: :user)
 
 
-Order.create!(price: 18.00, user_id:1, situation_id:1)
+Order.create!(price: 10.00, user_id:1, situation_id:1)
 Order.create!(price: 18.00, user_id:2, situation_id:2)
 Order.create!(price: 12.00, user_id:3, situation_id:3)
 
 
-OrderMeal.create!(quantity: 3, order_id:Order.find_by(price:18.00).id, meal_id:Meal.find_by(name:"Strogonoff de Frango").id)
-OrderMeal.create!(quantity: 4, order_id:Order.find_by(price:18.00).id, meal_id:Meal.find_by(name:"Filé ao Molho Madeira").id)
+OrderMeal.create!(quantity: 1, order_id:Order.find_by(price:10.00).id, meal_id:Meal.find_by(name:"Cerveja Lata").id)
+OrderMeal.create!(quantity: 1, order_id:Order.find_by(price:18.00).id, meal_id:Meal.find_by(name:"Filé ao Molho Madeira").id)
 OrderMeal.create!(quantity: 1, order_id:Order.find_by(price:12.00).id, meal_id:Meal.find_by(name:"Batata Frita").id)
