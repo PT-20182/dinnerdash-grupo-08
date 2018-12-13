@@ -22,7 +22,18 @@
                 <% if order.user_id == current_user.id %>
                     <tr>
                         <th scope="row" class="text-secondary"><%= order.id %></th>
-                        <td class="text-secondary"><%= Situation.find(order.situation_id).description %></td>
+                        <td class="text-secondary">
+                            <% case Situation.find(order.situation_id).description%>
+                                <%when "pendente"%>
+                                    <div class="statusPending"><%= Situation.find(order.situation_id).description %></div>
+                                <%when "entregue"%>
+                                    <div class="statusDelivered"><%= Situation.find(order.situation_id).description %></div>
+                                <%when "cancelado"%>
+                                    <div class="statusCanceled"><%= Situation.find(order.situation_id).description %></div>
+                                <%else %>
+                                    <div class="statusDefault"><%= Situation.find(order.situation_id).description %></div>
+                            <%end%>
+                        </td>
                         <td class="text-secondary"><%= order.created_at.strftime("%d/%m/%y") %></td>
                         <td class="text-secondary"><%= number_to_currency(order.price, unit:"R$", separator:",") %></td>
                         <td ><%= link_to "ver itens pedido", order_path(order) ,class:"text-info" %></td>
@@ -95,7 +106,18 @@
                 <% if order.user_id == current_user.id %>
                     <tr>
                         <th scope="row" class="text-secondary"><%= order.id %></th>
-                        <td class="text-secondary"><%= Situation.find(order.situation_id).description %></td>
+                        <td class="text-secondary">
+                            <% case Situation.find(order.situation_id).description%>
+                                <%when "pendente"%>
+                                    <div class="statusPending"><%= Situation.find(order.situation_id).description %></div>
+                                <%when "entregue"%>
+                                    <div class="statusDelivered"><%= Situation.find(order.situation_id).description %></div>
+                                <%when "cancelado"%>
+                                    <div class="statusCanceled"><%= Situation.find(order.situation_id).description %></div>
+                                <%else %>
+                                    <div class="statusDefault"><%= Situation.find(order.situation_id).description %></div>
+                            <%end%>
+                        </td>
                         <td class="text-secondary"><%= order.created_at.strftime("%d/%m/%y") %></td>
                         <td class="text-secondary"><%= User.find(order.user_id).full_name %></td>
                         <td class="text-secondary"><%= number_to_currency(order.price, unit:"R$", separator:",") %></td>
