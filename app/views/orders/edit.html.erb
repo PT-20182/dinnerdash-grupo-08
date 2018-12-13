@@ -7,7 +7,6 @@
     </div>
     
     <%= form_with model: @order do |form|%>
-<<<<<<< HEAD
          <div class="edit-box">
             <div class="field">
                 <%= form.label "Número" %> <br />
@@ -34,31 +33,6 @@
                 <%= form.label "Usuário" %> <br />
                 <%= form.text_field :user_full_name, placeholder: User.find(@order.user_id).full_name, readonly:true, value: User.find(@order.user_id).full_name,  class: "form-control"  %>
             </div>
-=======
-        <div class="field">
-            <%= form.label "Número" %> <br />
-            <%= form.text_field :order_id, placeholder: @order.id, disabled:true, value: @order.id %>
-        </div>
-
-        <div class="form-group">
-            <%= form.label "Situação"%> <br />
-            <%= form.select(:situation_id, Situation.all.collect{|sit| [sit.description, sit.id]}, selected:@order.situation_id) %>
-        </div>
-
-        <div class="field">
-            <%= form.label "Data"%> <br />
-            <%= form.text_field :order_created_at, placeholder: @order.created_at.strftime("%d/%m/%y"), disabled:true, value: @order.created_at.strftime("%d/%m/%y") %>
-        </div>
-
-        <div class="field">
-            <%= form.label "Usuário" %> <br />
-            <%= form.text_field :user_full_name, placeholder: User.find(@order.user_id).full_name, disabled:true, value: User.find(@order.user_id).full_name %>
-        </div>
-
-        <div class="field">
-            <%= form.label "Preço Total" %> <br />
-            <%= form.text_field :order_price, placeholder: @order.price, disabled:true, value:@order.price %>
->>>>>>> cffd0c039c3e3b2b3df787fbb24226c3de381e49
         </div>
         <div class="row">
             <%= form.submit "atualizar pedido", class:"btn btn-success" %>
