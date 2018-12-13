@@ -17,14 +17,14 @@
                     <tr>
                         <td><%= category.name %></td>
                         <td>4</td>
-                        <td><%=category.created_at.strftime("%Y/%m/%d")%></td>
+                        <td><%=category.created_at.strftime("%d/%m/%Y")%></td>
                         <td><%= link_to 'editar', edit_category_path(category), method: 'get', class: "edit" %></td>
                         <td><%= link_to 'excluir', category, method: :delete, data: { confirm: 'Tem certeza que deseja excluir esta categoria?' }, class: "remove" %></td>
                     </tr>
                 <% end %>
             </tbody>
         </table>
-        <%= link_to "Nova categoria de refeição", new_category_path, class: "btn btn-success button"%>
+        <%= link_to "nova categoria de refeição", new_category_path, class: "btn btn-success m-2 button-cat"%>
     </div>
 </div>
 
