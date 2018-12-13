@@ -16,7 +16,7 @@
                 <% @categories.each do |category| %>
                     <tr>
                         <td><%= category.name %></td>
-                        <%
+                        <% 
                             quantity = 0
                             @meals.each do |meal|
                                 if meal.category_id == category.id

@@ -25,6 +25,13 @@ body {
     margin: 0 0 100px; /* bottom = footer height */
 }
 
+.bg-img {
+    position: fixed;
+    width: 115em;
+    height: 65em;
+    z-index: -1;
+}
+
 .bg-image {
    position: fixed;
    width: 75em;
@@ -42,19 +49,15 @@ body {
    overflow: scroll;
 }
 
-.menu-button {
-   width: 100%;
-   background-color: #29a755;
-   color: white;
-   height: 2.7em;
-   border-radius: 2px;
-   border: none;
-   font-size: 0.8em;
-   font-family: 'Open Sans';
-   margin: 1em 0;
+.login-button {
+    width: 100%;
 }
 
-.menu-button:hover {
+.signup-button {
+    width: 100%;
+}
+
+.signup-button:hover {
    background-color: #0f6e30;
    cursor: pointer;
 }
@@ -82,8 +85,14 @@ body {
    cursor: pointer;
 }
 
+#ddash {
+	margin-bottom: 30px;
+	font-size: 2.5em;
+	font-weight: bold;
+}
+
 div h2 {
-   font-family: 'Open Sans';
+   font-family: "Circular Std Book", Helvetica, serif;
    color: #3f3f3f;
 }
 

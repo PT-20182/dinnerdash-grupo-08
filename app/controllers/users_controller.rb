@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     
     before_action :check_admin_status
 
-    USERS_SIZE = 5
+    USERS_SIZE = 6
 
     def index
         @users = User.all
