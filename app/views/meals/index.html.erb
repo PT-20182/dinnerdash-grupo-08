@@ -28,8 +28,8 @@
                                     <h5><%= number_to_currency(meal.price, unit: "R$", separator: ",") %> por porção</h5>
                                     <% if user_signed_in? && current_user.admin? %>
                                         <div class="meal-buttons">
-                                            <%= link_to "Editar", edit_meal_path(meal), method: :get, class: "btn btn-warning" %>
-                                            <%= link_to 'Excluir', meal_path(meal), method: :delete, data: {confirm:"Are you sure ?"}, class: "btn btn-danger" %>
+                                            <%= link_to "editar", edit_meal_path(meal), method: :get, class: "btn btn-warning m-2", id: "warning" %>
+                                            <%= link_to 'excluir', meal_path(meal), method: :delete, data: {confirm:"Are you sure ?"}, class: "btn btn-danger m-2", id: "danger" %>
                                         </div>
                                     <% else %>
                                         <%= form_tag(add_item_path, method: :put) do %>
@@ -51,6 +51,7 @@
             <% end %>
         </div>
     </div>
+
 <<<<<<< HEAD
 <%= session[:cart] %>
 =======
