@@ -171,21 +171,21 @@
             <%end%>
         </tbody>
     </table>
-    <%end%>
-</div>
 
-<div class="button-page">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center pager">
-            <li class="page-item page-link previous <%= @page == 0 ? 'disabled' : '' %>">
-                <%= link_to_if @page > 0, "<<", orders_path(page: @page - 1) %>
-            </li>
-        
-            <li class="page-item page-link next">
-                <%= link_to ">>", orders_path(page: @page + 1) %>
-            </li>
-        </ul>
-    </nav>
+    <div class="button-page">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center pager">
+                <li class="page-item page-link previous <%= @page == 0 ? 'disabled' : '' %>">
+                    <%= link_to_if @page > 0, "<<", orders_path(page: @page - 1) %>
+                </li>
+            
+                <li class="page-item page-link next">
+                    <%= link_to ">>", orders_path(page: @page + 1) %>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <%end%>
 </div>
 
 
