@@ -119,7 +119,6 @@
                             <%end%>
                         </td>
                         <td class="text-secondary"><%= order.created_at.strftime("%d/%m/%y") %></td>
-                        <td class="text-secondary"><%= User.find(order.user_id).full_name %></td>
                         <td class="text-secondary"><%= number_to_currency(order.price, unit:"R$", separator:",") %></td>
                         <td ><%= link_to "ver itens pedido", order_path(order) ,class:"text-info" %></td>
                         <% if current_user.admin? %>
