@@ -6,19 +6,19 @@
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group field">
-      <%= f.label :login %><br />
-      <%= f.text_field :login, autofocus: true, autocomplete: "login" %>
+      <%= f.label "Email" %><br />
+      <%= f.text_field :login, autofocus: true, autocomplete: "login", class: "form-control" %>
     </div>
 
     <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.label "Senha" %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
       <div class="field">
         <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+        <%= f.label "Mantenha-me conectado" %>
       </div>
     <% end -%>
 
@@ -27,6 +27,6 @@
     </div>
   <% end %>
   <hr>
-  <p>Already have account?</p>
+  <p>Não possui conta?</p>
   <%= render "users/shared/links" %>
 </div>
