@@ -21,23 +21,22 @@
                                     <div class="meal-name">
                                         <%= link_to meal.name, meal_path(meal), class:"meal-link" %>
                                     </div>
-                                </div>
-                            <% end %>
-                            <div class="meal-display">
-                                <p><%= meal.description %></p>
-                                <h5><%= number_to_currency(meal.price, unit: "R$", separator: ",") %> por porção</h5>
-                                <% if user_signed_in? && current_user.admin? %>
-                                    <div class="meal-buttons">
-                                        <%= link_to "Editar", edit_meal_path(meal), method: :get, class: "btn btn-warning" %>
-                                        <%= link_to 'Excluir', meal_path(meal), method: :delete, data: {confirm:"Are you sure ?"}, class: "btn btn-danger" %>
-                                    </div>
-                                <% else %>
-                                    <%= form_tag(add_item_path, method: :put) do %>
-                                        <%= hidden_field_tag :meal_id, meal.id %>
-                                        <%= number_field_tag :quantity,'Quantidade', min: 1, max: 100 ,class: "form-control form-login form-ticket", placeholder: "Quantidade" %>
-                                        <%= submit_tag "adicionar ao meu prato", class: "btn btn-success" %></span>
-                                    <% end %>
                                 <% end %>
+                                <div class="meal-display">
+                                    <p><%= meal.description %></p>
+                                    <h5><%= number_to_currency(meal.price, unit: "R$", separator: ",") %> por porção</h5>
+                                    <% if user_signed_in? && current_user.admin? %>
+                                        <div class="meal-buttons">
+                                            <%= link_to "editar", edit_meal_path(meal), method: :get, class: "btn btn-warning m-2", id: "warning" %>
+                                            <%= link_to 'excluir', meal_path(meal), method: :delete, data: {confirm:"Are you sure ?"}, class: "btn btn-danger m-2", id: "danger" %>
+                                        </div>
+                                    <% else %>
+                                        <%= form_tag(add_item_path, method: :put) do %>
+                                            <%= hidden_field_tag :meal_id, meal.id %>
+                                            <%= number_field_tag :quantity,'Quantidade', min: 1, max: 100 ,class: "form-control form-login form-ticket", placeholder: "Quantidade", value: 1 %>
+                                            <%= submit_tag "adicionar ao meu prato", class: "btn btn-success" %></span>
+                                        <% end %>
+                                    <% end %>
                             </div>
                         </div>
                     <% end %>
@@ -52,5 +51,10 @@
     </div>
 </div>
 <%= session[:cart] %>
+
+<% unless user_signed_in? && current_user.admin? %>
+    <%= render "layouts/cart" %>
+<% end %>
+
 
 <%= render "layouts/footer" %>

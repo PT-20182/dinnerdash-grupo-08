@@ -1,14 +1,19 @@
-<% if current_page?(root_path) %>
-    <% if user_signed_in? && current_user.admin? %>
-        <% @bg_url = 'background-backoffice' %>
-    <% else %>
-        <% @bg_url = 'background-user' %>
-    <% end %>
-<% elsif current_page?(edit_user_registration_path) %>
-    <% @bg_url = 'background-profile' %>
-<% else %>
-    <% @bg_url = 'background-cart' %>
-<% end %>
+<% 
+    if user_signed_in? && current_user.admin?
+        @bg_url = 'background-backoffice'
+    else
+        if current_page?(root_path)
+            @bg_url = 'background-user'
+        else
+            @bg_url = 'background-cart'
+        end
+    end
+
+    if current_page?(edit_user_registration_path)
+        @bg_url = 'background-profile'
+    end
+
+%>
 
 <div class="<%= @bg_url %>">
     <div class="layer">

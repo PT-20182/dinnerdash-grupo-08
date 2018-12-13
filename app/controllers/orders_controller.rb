@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :check_admin_status , only: [:index, :edit, :show, :destroy]
+  before_action :check_admin_status , only: [:edit, :destroy]
+  before_action :check_user
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   ORDERS_SIZE = 5
@@ -18,8 +19,25 @@ class OrdersController < ApplicationController
   end
 
   def create
-      @order = Order.new(order_params)
+
+      sum = 0
+      session[:cart].each do |item|
+            sum += Meal.find(item["id"]).price * item["qtd"].to_i
+      end
+
+      @order = Order.new(situation_id:1 , user_id:current_user.id, price:sum)
+
       @order.save!
+
+
+
+      session[:cart].each do |item|
+          @order_meal = OrderMeal.new(order_id: @order.id, meal_id: item["id"], quantity:item["qtd"].to_i)
+          @order_meal.save!
+      end
+
+      session[:cart].clear
+
       redirect_to orders_path
   end
 
@@ -44,4 +62,12 @@ class OrdersController < ApplicationController
   def set_order
       @order = Order.find(params[:id])
   end
+
+  def check_user
+    unless user_signed_in?
+        redirect_to new_user_session_path
+        flash[:warning] = "Faça login ou crie sua conta antes."
+    end
+  end
+
 end

@@ -3,8 +3,6 @@ class OrderMealsController < ApplicationController
   end
 
   def create
-        @order      = current_order
-        @order_meal = @order.order_meals.new
   end
 
 
@@ -17,7 +15,7 @@ class OrderMealsController < ApplicationController
   def edit
   end
 
-  private 
+  private
 
 
 end

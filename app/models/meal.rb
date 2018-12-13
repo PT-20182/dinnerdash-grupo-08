@@ -1,6 +1,6 @@
 class Meal < ApplicationRecord
     belongs_to :category
-    has_many :order_meals
+    has_many :order_meals, dependent: :destroy
     has_many :orders, through: :order_meals
     after_create :has_image
 
