@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-    
+    before_action :get_meals
     before_action :current_category, only: [:show, :edit, :update, :destroy]
     before_action :check_admin_status
     
@@ -49,5 +49,9 @@ class CategoriesController < ApplicationController
 
     def current_category
         @category = Category.find(params[:id])
+    end
+
+    def get_meals
+        @meals = Meal.all
     end
 end

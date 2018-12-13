@@ -34,7 +34,7 @@
                                     <% else %>
                                         <%= form_tag(add_item_path, method: :put) do %>
                                             <%= hidden_field_tag :meal_id, meal.id %>
-                                            <%= number_field_tag :quantity,'Quantidade', min: 1, max: 100 ,class: "form-control form-login form-ticket", placeholder: "Quantidade" %>
+                                            <%= number_field_tag :quantity,'Quantidade', min: 1, max: 100 ,class: "form-control form-login form-ticket", placeholder: "Quantidade", value: 1 %>
                                             <%= submit_tag "adicionar ao meu prato", class: "btn btn-success" %></span>
                                         <% end %>
                                     <% end %>
@@ -51,6 +51,14 @@
             <% end %>
         </div>
     </div>
+<<<<<<< HEAD
 <%= session[:cart] %>
+=======
+</div>
+
+<% unless user_signed_in? && current_user.admin? %>
+    <%= render "layouts/cart" %>
+<% end %>
+>>>>>>> cffd0c039c3e3b2b3df787fbb24226c3de381e49
 
 <%= render "layouts/footer" %>
